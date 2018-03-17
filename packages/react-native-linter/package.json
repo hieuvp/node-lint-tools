@@ -5,7 +5,11 @@
   "description": "React Native Linter",
   "main": "src",
   "scripts": {
-    "clean": "rm -rf package-lock.json node_modules"
+    "clean": "rm -rf package-lock.json node_modules",
+    "lint": "run lint runfile.js src",
+    "lint:fix": "run lint --fix runfile.js src",
+    "test": "jest",
+    "test:updateSnapshot": "jest --updateSnapshot"
   },
   "license": "MIT",
   "dependencies": {
