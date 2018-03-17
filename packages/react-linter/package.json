@@ -1,0 +1,11 @@
+{
+  "name": "react-linter",
+  "private": false,
+  "version": "1.0.0",
+  "description": "React Linter",
+  "main": "src",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
+}
