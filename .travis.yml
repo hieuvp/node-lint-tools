@@ -1,0 +1,21 @@
+language: node_js
+
+node_js:
+  # Latest stable Node.js release
+  - node
+  # Latest LTS Node.js release
+  - lts/*
+
+before_install:
+  - npm install --global npm@latest
+
+install:
+  # Similar to npm-install,
+  # except it's meant to be used in automated environments
+  # such as test platforms, continuous integration, and deployment
+  - npm ci
+
+# Keep the npm cache around to speed up installs
+cache:
+  directories:
+    - $HOME/.npm
