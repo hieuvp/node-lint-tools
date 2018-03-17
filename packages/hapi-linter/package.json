@@ -5,10 +5,13 @@
   "description": "Hapi Linter",
   "main": "src",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf package-lock.json node_modules"
   },
   "license": "MIT",
   "dependencies": {
     "@hieu.van/node-linter": "^1.0.0"
+  },
+  "devDependencies": {
+    "jest": "^22.4.2"
   }
 }
