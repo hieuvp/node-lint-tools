@@ -3,15 +3,24 @@
   "private": false,
   "version": "1.0.0",
   "description": "React Native Linter",
+  "engines": {
+    "node": ">=8.10.0"
+  },
   "main": "src",
   "scripts": {
-    "clean": "rm -rf package-lock.json node_modules"
+    "clean": "rm -rf package-lock.json node_modules",
+    "lint": "run lint runfile.js src",
+    "lint:fix": "run lint --fix runfile.js src",
+    "test": "jest",
+    "test:updateSnapshot": "jest --updateSnapshot"
   },
   "license": "MIT",
   "dependencies": {
-    "@hieu.van/react-linter": "^1.0.0"
+    "@hieu.van/react-linter": "^1.0.0",
+    "eslint-plugin-react-native": "^3.2.1"
   },
   "devDependencies": {
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "runjs": "^4.3.2"
   }
 }

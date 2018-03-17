@@ -3,12 +3,32 @@
   "private": false,
   "version": "1.0.0",
   "description": "Node Linter",
+  "engines": {
+    "node": ">=8.10.0"
+  },
   "main": "src",
   "scripts": {
-    "clean": "rm -rf package-lock.json node_modules"
+    "clean": "rm -rf package-lock.json node_modules",
+    "lint": "run lint runfile.js src",
+    "lint:fix": "run lint --fix runfile.js src",
+    "test": "jest",
+    "test:updateSnapshot": "jest --updateSnapshot"
   },
   "license": "MIT",
   "devDependencies": {
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "runjs": "^4.3.2"
+  },
+  "dependencies": {
+    "eslint": "^4.19.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.15.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-security": "^1.4.0",
+    "jsonlint": "^1.6.3",
+    "prettier": "^1.11.1"
   }
 }
