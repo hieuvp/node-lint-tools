@@ -8,6 +8,7 @@ node_js:
 
 before_install:
   - npm install --global npm@latest
+  - npm --version
 
 install:
   # Similar to npm-install,
