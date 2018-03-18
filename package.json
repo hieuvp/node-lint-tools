@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "clean": "rimraf package-lock.json node_modules && lerna run clean",
+    "postinstall": "lerna bootstrap"
+  },
   "devDependencies": {
-    "lerna": "^2.9.0"
+    "jest": "^22.4.2",
+    "lerna": "^2.9.0",
+    "rimraf": "^2.6.2",
+    "runjs": "^4.3.2"
   }
 }
