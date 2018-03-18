@@ -6,7 +6,7 @@
     "lint:fix": "run lint --fix runfile.js packages/**/src",
     "test": "jest packages/**/src",
     "test:updateSnapshot": "jest --updateSnapshot packages/**/src",
-    "test:ci": "jest --bail --ci packages/**/src"
+    "test:ci": "jest --ci --bail packages/**/src"
   },
   "devDependencies": {
     "jest": "^22.4.2",
