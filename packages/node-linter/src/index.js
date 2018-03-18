@@ -1,1 +1,7 @@
-module.exports = require('./node.runfile');
+const eslintrc = require('./eslintrc');
+const runfile = require('./runfile');
+
+module.exports = {
+  eslintrc,
+  runfile
+};

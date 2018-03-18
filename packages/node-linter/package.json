@@ -5,7 +5,7 @@
   "description": "Node Linter",
   "main": "src",
   "scripts": {
-    "clean": "rimraf package-lock.json node_modules"
+    "clean": "rm -rf package-lock.json node_modules"
   },
   "license": "MIT",
   "dependencies": {
