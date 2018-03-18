@@ -4,8 +4,7 @@
     "postinstall": "lerna bootstrap",
     "lint": "run lint runfile.js packages/**/src",
     "lint:fix": "run lint --fix runfile.js packages/**/src",
-    "test": "jest packages/**/src",
-    "test:updateSnapshot": "jest --updateSnapshot packages/**/src",
+    "test": "jest --updateSnapshot packages/**/src",
     "test:ci": "jest --ci --bail packages/**/src"
   },
   "devDependencies": {
