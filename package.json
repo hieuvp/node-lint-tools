@@ -1,4 +1,10 @@
 {
+  "name": "node-lint-tools",
+  "private": false,
+  "description": "Node Lint Tools",
+  "engines": {
+    "node": ">=8.10.0"
+  },
   "scripts": {
     "clean": "rm -rf package-lock.json node_modules lerna-debug.log && lerna run clean",
     "postinstall": "lerna bootstrap",
@@ -7,6 +13,15 @@
     "test": "jest --updateSnapshot packages/**/src",
     "test:ci": "jest --ci --bail packages/**/src"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hieuvp/node-lint-tools.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hieuvp/node-lint-tools/issues"
+  },
+  "homepage": "https://github.com/hieuvp/node-lint-tools#readme",
   "devDependencies": {
     "jest": "^22.4.2",
     "lerna": "^2.9.0",
