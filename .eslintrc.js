@@ -1,1 +1,3 @@
-module.exports = require('./packages/node-linter/src/eslintrc');
+const { eslintrc } = require('./packages/node-linter/src');
+
+module.exports = eslintrc;
