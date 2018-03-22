@@ -18,7 +18,6 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-security": "^1.4.0",
     "jsonlint": "^1.6.3",
-    "lodash.isempty": "^4.4.0",
     "prettier": "^1.11.1"
   },
   "peerDependencies": {
