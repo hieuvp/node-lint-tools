@@ -23,7 +23,10 @@
   },
   "homepage": "https://github.com/hieuvp/node-lint-tools#readme",
   "devDependencies": {
+    "glob": "^7.1.2",
     "jest": "^22.4.2",
-    "lerna": "^2.9.0"
+    "lerna": "^2.9.0",
+    "lodash.isempty": "^4.4.0",
+    "runjs": "^4.3.2"
   }
 }
