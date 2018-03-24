@@ -1,1 +1,3 @@
-module.exports = require('./node.runfile');
+const { lint } = require('./node.runfile');
+
+module.exports = lint;
