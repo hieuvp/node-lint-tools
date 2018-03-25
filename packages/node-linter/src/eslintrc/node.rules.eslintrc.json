@@ -9,7 +9,9 @@
       "devDependencies": [
         "/runfile.js",
         "/src/**/*.test.js",
-        "/src/**/*.spec.js"
+        "/src/**/*.spec.js",
+        "/packages/**/src/**/*.test.js",
+        "/packages/**/src/**/*.spec.js"
       ]
     }
   ],
