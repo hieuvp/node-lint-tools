@@ -1,4 +1,4 @@
-const node = require('@hieu.van/node-linter/src/eslintrc');
+const { eslintrc: node } = require('@hieu.van/node-linter');
 const rules = require('./hapi.rules.eslintrc');
 
 module.exports = {

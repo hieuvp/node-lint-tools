@@ -1,4 +1,4 @@
-const node = require('@hieu.van/node-linter/src/eslintrc');
+const { eslintrc: node } = require('@hieu.van/node-linter');
 const rules = require('./react.rules.eslintrc');
 
 module.exports = {
