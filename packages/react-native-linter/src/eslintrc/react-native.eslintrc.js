@@ -1,5 +1,5 @@
 const react = require('@hieu.van/react-linter/src/eslintrc');
-const rules = require('./react-native.eslintrc.rules');
+const rules = require('./react-native.rules.eslintrc');
 
 module.exports = {
   ...react,
