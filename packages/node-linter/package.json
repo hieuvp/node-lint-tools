@@ -3,6 +3,9 @@
   "private": false,
   "version": "1.0.0",
   "description": "Node Linter",
+  "engines": {
+    "node": ">=8.10.0"
+  },
   "main": "src",
   "scripts": {
     "clean": "rm -rf package-lock.json node_modules"

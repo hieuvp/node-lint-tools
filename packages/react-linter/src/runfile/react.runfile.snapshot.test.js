@@ -1,4 +1,4 @@
-const react = require('./react.eslintrc');
+const react = require('./react.runfile');
 
 it('should match snapshot', () => {
   expect(react).toMatchSnapshot();
