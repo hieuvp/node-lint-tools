@@ -6,6 +6,10 @@ node_js:
   # Latest LTS Node.js release
   - lts/*
 
+notifications:
+  # Failed build email notifications is annoying
+  email: false
+
 before_install:
   - npm install --global npm@latest
   - npm --version
