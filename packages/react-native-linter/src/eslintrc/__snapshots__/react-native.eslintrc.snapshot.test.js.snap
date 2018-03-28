@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+Object {
+  "extends": Array [
+    "airbnb-base",
+    "plugin:jest/recommended",
+    "plugin:node/recommended",
+    "plugin:prettier/recommended",
+    "plugin:security/recommended",
+    "airbnb",
+    "plugin:import/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "prettier/react",
+    "plugin:react-native/all",
+  ],
+  "plugins": Array [
+    "jest",
+    "node",
+    "prettier",
+    "security",
+    "import",
+    "jsx-a11y",
+    "react",
+    "react-native",
+  ],
+  "rules": Object {
+    "comma-dangle": Array [
+      "error",
+      "never",
+    ],
+    "import/no-extraneous-dependencies": Array [
+      "error",
+      Object {
+        "devDependencies": Array [
+          "/runfile.js",
+          "/src/**/*.test.js",
+          "/src/**/*.spec.js",
+          "/packages/**/src/**/*.test.js",
+          "/packages/**/src/**/*.spec.js",
+        ],
+      },
+    ],
+    "prettier/prettier": Array [
+      "error",
+      Object {
+        "singleQuote": true,
+      },
+    ],
+  },
+}
+`;
