@@ -3,7 +3,7 @@
   "private": false,
   "description": "Node Lint Tools",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=8.11.1"
   },
   "scripts": {
     "clean": "rm -rf package-lock.json node_modules lerna-debug.log && lerna run clean",
