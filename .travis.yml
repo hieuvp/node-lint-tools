@@ -1,5 +1,7 @@
 language: node_js
 
+node_js: lts/*
+
 notifications:
   # Build failed will send a spamming email, better turn it off
   email: false
@@ -22,11 +24,9 @@ jobs:
   include:
     # Stage name: lint
     - stage: lint
-      node_js: lts/*
       script: npm run lint:ci
     # Stage name: test
     - stage: test
-      node_js: lts/*
       script: npm run test:ci
 
 # Specify stage order and conditions
