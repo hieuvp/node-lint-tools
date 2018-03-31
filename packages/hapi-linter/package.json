@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Hapi Linter",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=8.11.1"
   },
   "main": "src",
   "scripts": {

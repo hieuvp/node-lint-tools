@@ -15,9 +15,12 @@
       ]
     }
   ],
+  "jsdoc/require-param-description": "off",
+  "optimize-regex/optimize-regex": "warn",
   "prettier/prettier": [
     "error",
     {
+      "printWidth": 90,
       "singleQuote": true
     }
   ]
