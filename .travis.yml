@@ -1,5 +1,6 @@
 language: node_js
 
+# Latest LTS Node.js release
 node_js: lts/*
 
 notifications:
@@ -22,10 +23,10 @@ cache:
 # Define build stages
 jobs:
   include:
-    # Stage name: lint
+    # Lint
     - stage: lint
       script: npm run lint:ci
-    # Stage name: test
+    # Test
     - stage: test
       script: npm run test:ci
 
