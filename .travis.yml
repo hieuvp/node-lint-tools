@@ -25,13 +25,17 @@ cache:
   directories:
     - $HOME/.npm
 
-# Stages group jobs that run in parallel,
-# while their stages run sequentially
+# Define build stages
 jobs:
   include:
-    # Lint
+    # Stage name: lint
     - stage: lint
       script: npm run lint:ci
-    # Test
+    # Stage name: test
     - stage: test
       script: npm run test:ci
+
+# Specify stage order and conditions
+stages:
+  - lint
+  - test
