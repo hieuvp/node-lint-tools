@@ -10,7 +10,7 @@ A complete solution for linting, maximize your project quality.
 npm install --save-dev @hieu.van/node-linter
 ```
 
-* hapi.js
+* Hapi.js
 
 ```
 npm install --save-dev @hieu.van/hapi-linter
