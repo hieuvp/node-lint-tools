@@ -19,7 +19,7 @@ describe('args validation', () => {
   });
 
   validatedArgs.forEach(args => {
-    it(`should be happy because ${JSON.stringify(args)} is a valid args`, () => {
+    it(`should be happy because ${JSON.stringify(args)} is a validated args`, () => {
       expect(() => lint(...args)).not.toThrow();
     });
   });
