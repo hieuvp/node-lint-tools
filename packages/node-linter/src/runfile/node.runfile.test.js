@@ -14,6 +14,10 @@ const validatedArgs = [
 ];
 
 describe('args validation', () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   validatedArgs.forEach(args => {
     it(`should be happy because ${JSON.stringify(args)} is a valid args`, () => {
       expect(() => lint(...args)).not.toThrow();

@@ -11,7 +11,7 @@
     "lint": "run lint .",
     "lint:ci": "npm run lint -- --ci",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest packages/**/src",
+    "test": "jest --testPathPattern packages/**/src",
     "test:ci": "npm run test -- --ci --bail",
     "test:fix": "npm run test -- --updateSnapshot "
   },
