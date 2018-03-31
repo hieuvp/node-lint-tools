@@ -13,7 +13,7 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "jest",
     "test:ci": "npm run test -- --ci --bail",
-    "test:fix": "npm run test -- --updateSnapshot "
+    "test:fix": "npm run test -- --updateSnapshot"
   },
   "repository": {
     "type": "git",
