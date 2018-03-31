@@ -5,14 +5,19 @@ Object {
   "extends": Array [
     "airbnb-base",
     "plugin:jest/recommended",
+    "plugin:jsdoc/recommended",
     "plugin:node/recommended",
     "plugin:prettier/recommended",
+    "plugin:promise/recommended",
     "plugin:security/recommended",
   ],
   "plugins": Array [
     "jest",
+    "jsdoc",
     "node",
+    "optimize-regex",
     "prettier",
+    "promise",
     "security",
     "hapi",
   ],
@@ -33,9 +38,12 @@ Object {
         ],
       },
     ],
+    "jsdoc/require-param-description": "off",
+    "optimize-regex/optimize-regex": "warn",
     "prettier/prettier": Array [
       "error",
       Object {
+        "printWidth": 90,
         "singleQuote": true,
       },
     ],
