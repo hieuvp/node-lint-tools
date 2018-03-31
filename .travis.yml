@@ -11,7 +11,7 @@ before_install:
   - npm install --global npm@latest
 
 install:
-  # Similar to npm-install,
+  # Similar to npm install,
   # except it is meant to be used in automated environments
   - npm ci
 
