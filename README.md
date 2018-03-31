@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/hieuvp/node-lint-tools.svg?branch=master)](https://travis-ci.org/hieuvp/node-lint-tools)
 
-A complete solution for linting, maximize your project quality.
+By collecting best practices, this project aims to provide **linters** with **zero configuration** but **fully functional**.
+
+*Simple is Better Than Complex.*
 
 ## Installation
 
