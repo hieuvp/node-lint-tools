@@ -7,7 +7,7 @@ node_js:
   - lts/*
 
 notifications:
-  # Failed build email notifications is annoying
+  # Build failed will send a spamming email, better turn it off
   email: false
 
 before_install:
