@@ -1,10 +1,14 @@
 const { run } = require('runjs');
 
 /**
- * @param {string[]} args
- * @param {object} opts
+ * @param {String[]} args
+ * @param {Object} opts
  * @param {boolean} opts.fix
  */
-module.exports = (args, opts = {}) => {
+const jsonlint = (args, opts = {}) => {
   const { fix = false } = opts;
+};
+
+module.exports = {
+  jsonlint
 };
