@@ -4,7 +4,7 @@ language: node_js
 node_js: lts/*
 
 notifications:
-  # Build failed will send a spamming email, better turn it off
+  # Build failed will trigger a spamming email, better turn it off
   email: false
 
 before_install:
