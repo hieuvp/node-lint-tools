@@ -16,8 +16,7 @@ before_install:
 
 install:
   # Similar to npm-install,
-  # except it's meant to be used in automated environments
-  # such as test platforms, continuous integration, and deployment
+  # except it is meant to be used in automated environments
   - npm ci
 
 # Keep the npm cache around to speed up installs
@@ -30,9 +29,15 @@ jobs:
   include:
     # Stage name: lint
     - stage: lint
+      node_js:
+        - node
+        - lts/*
       script: npm run lint:ci
     # Stage name: test
     - stage: test
+      node_js:
+        - node
+        - lts/*
       script: npm run test:ci
 
 # Specify stage order and conditions
