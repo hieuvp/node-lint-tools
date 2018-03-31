@@ -1,18 +1,11 @@
 language: node_js
 
-node_js:
-  # Latest stable Node.js release
-  - node
-  # Latest LTS Node.js release
-  - lts/*
-
 notifications:
   # Build failed will send a spamming email, better turn it off
   email: false
 
 before_install:
   - npm install --global npm@latest
-  - npm --version
 
 install:
   # Similar to npm-install,
@@ -32,13 +25,15 @@ jobs:
       node_js:
         - node
         - lts/*
-      script: npm run lint:ci
+      script:
+        - npm run lint:ci
     # Stage name: test
     - stage: test
       node_js:
         - node
         - lts/*
-      script: npm run test:ci
+      script:
+        - npm run test:ci
 
 # Specify stage order and conditions
 stages:
