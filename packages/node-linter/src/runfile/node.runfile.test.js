@@ -33,7 +33,7 @@ describe('args validation', () => {
   });
 });
 
-describe('runners invocation', () => {
+describe('linters invocation', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
