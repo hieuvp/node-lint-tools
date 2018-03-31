@@ -22,18 +22,12 @@ jobs:
   include:
     # Stage name: lint
     - stage: lint
-      node_js:
-        - node
-        - lts/*
-      script:
-        - npm run lint:ci
+      node_js: lts/*
+      script: npm run lint:ci
     # Stage name: test
     - stage: test
-      node_js:
-        - node
-        - lts/*
-      script:
-        - npm run test:ci
+      node_js: lts/*
+      script: npm run test:ci
 
 # Specify stage order and conditions
 stages:
