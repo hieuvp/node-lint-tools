@@ -8,10 +8,6 @@ const { jsonlint } = require('./jsonlint.runfile');
  * @param {...String} args
  */
 module.exports = function lint(...args) {
-  if (!Array.isArray(args)) {
-    throw new TypeError(`Expected "array", instead got "${args}: ${typeof args}"`);
-  }
-
   if (isEmpty(args)) {
     throw new TypeError('Please specify patterns or files');
   }

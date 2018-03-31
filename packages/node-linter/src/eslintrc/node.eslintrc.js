@@ -1,15 +1,7 @@
 const rules = require('./node.rules.eslintrc');
 
 module.exports = {
-  plugins: [
-    'jest',
-    'jsdoc',
-    'node',
-    'optimize-regex',
-    'prettier',
-    'promise',
-    'security'
-  ],
+  plugins: ['jest', 'jsdoc', 'node', 'optimize-regex', 'prettier', 'promise', 'security'],
   extends: [
     'airbnb-base',
     'plugin:jest/recommended',
