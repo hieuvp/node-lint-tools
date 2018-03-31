@@ -24,3 +24,14 @@ install:
 cache:
   directories:
     - $HOME/.npm
+
+# Stages group jobs that run in parallel,
+# while their stages run sequentially
+jobs:
+  include:
+    # Lint
+    - stage: lint
+      script: npm run lint:ci
+    # Test
+    - stage: test
+      script: npm run test:ci
