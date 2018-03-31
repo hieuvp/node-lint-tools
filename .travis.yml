@@ -1,0 +1,36 @@
+language: node_js
+
+# Latest LTS Node.js release
+node_js: lts/*
+
+notifications:
+  # Build failed will trigger a spamming email, better turn it off
+  email: false
+
+before_install:
+  - npm install --global npm@latest
+
+install:
+  # Similar to npm install,
+  # except it is meant to be used in automated environments
+  - npm ci
+
+# Keep the npm cache around to speed up installs
+cache:
+  directories:
+    - $HOME/.npm
+
+# Define build stages
+jobs:
+  include:
+    # Lint
+    - stage: lint
+      script: npm run lint:ci
+    # Test
+    - stage: test
+      script: npm run test:ci
+
+# Specify stage order and conditions
+stages:
+  - lint
+  - test
