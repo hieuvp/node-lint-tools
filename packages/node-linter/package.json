@@ -28,7 +28,6 @@
   },
   "peerDependencies": {
     "glob": "^7.1.2",
-    "lodash.isempty": "^4.4.0",
     "runjs": "^4.3.2"
   }
 }

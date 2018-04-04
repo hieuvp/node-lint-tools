@@ -31,6 +31,14 @@ describe('args validation', () => {
   it('should only accept one args if contains a wildcard (.) otherwise will throw error', () => {
     expect(() => lint('.', 'src')).toThrowErrorMatchingSnapshot();
   });
+
+  // TODO: if directory, adding a trailing slash
+  // TODO: else we will miss node_modules
+
+  // TODO: test file exists
+  // TODO: test directory transformation
+
+  // TODO: test blacklist
 });
 
 describe('linters invocation', () => {
