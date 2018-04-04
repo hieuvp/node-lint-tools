@@ -1,4 +1,3 @@
-const isEmpty = require('lodash.isempty');
 const { options } = require('runjs');
 
 const { eslint } = require('./eslint.runfile');
@@ -8,7 +7,7 @@ const { jsonlint } = require('./jsonlint.runfile');
  * @param {...String} args
  */
 module.exports = function lint(...args) {
-  if (isEmpty(args)) {
+  if (args.length === 0) {
     throw new TypeError('Please specify patterns or files');
   }
 
