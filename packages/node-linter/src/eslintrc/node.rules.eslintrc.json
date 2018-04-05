@@ -3,18 +3,6 @@
     "error",
     "never"
   ],
-  "import/no-extraneous-dependencies": [
-    "error",
-    {
-      "devDependencies": [
-        "/runfile.js",
-        "/src/**/*.test.js",
-        "/src/**/*.spec.js",
-        "/packages/**/src/**/*.test.js",
-        "/packages/**/src/**/*.spec.js"
-      ]
-    }
-  ],
   "jsdoc/require-param-description": "off",
   "optimize-regex/optimize-regex": "warn",
   "prettier/prettier": [

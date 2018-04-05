@@ -4,12 +4,14 @@ exports[`should match snapshot 1`] = `
 Object {
   "extends": Array [
     "airbnb-base",
+    "plugin:eslint-comments/recommended",
     "plugin:jest/recommended",
     "plugin:jsdoc/recommended",
     "plugin:node/recommended",
     "plugin:prettier/recommended",
     "plugin:promise/recommended",
     "plugin:security/recommended",
+    "plugin:unicorn/recommended",
     "airbnb",
     "plugin:import/recommended",
     "plugin:jsx-a11y/recommended",
@@ -17,7 +19,21 @@ Object {
     "prettier/react",
     "plugin:react-native/all",
   ],
+  "overrides": Array [
+    Object {
+      "files": Array [
+        "runfile.js",
+        "*.test.js",
+        "*.spec.js",
+      ],
+      "rules": Object {
+        "import/no-extraneous-dependencies": "off",
+        "node/no-extraneous-require": "off",
+      },
+    },
+  ],
   "plugins": Array [
+    "eslint-comments",
     "jest",
     "jsdoc",
     "node",
@@ -25,6 +41,7 @@ Object {
     "prettier",
     "promise",
     "security",
+    "unicorn",
     "import",
     "jsx-a11y",
     "react",
@@ -34,18 +51,6 @@ Object {
     "comma-dangle": Array [
       "error",
       "never",
-    ],
-    "import/no-extraneous-dependencies": Array [
-      "error",
-      Object {
-        "devDependencies": Array [
-          "/runfile.js",
-          "/src/**/*.test.js",
-          "/src/**/*.spec.js",
-          "/packages/**/src/**/*.test.js",
-          "/packages/**/src/**/*.spec.js",
-        ],
-      },
     ],
     "jsdoc/require-param-description": "off",
     "optimize-regex/optimize-regex": "warn",
