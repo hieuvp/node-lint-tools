@@ -9,7 +9,8 @@ module.exports = {
     'optimize-regex',
     'prettier',
     'promise',
-    'security'
+    'security',
+    'unicorn'
   ],
   extends: [
     'airbnb-base',
@@ -19,7 +20,8 @@ module.exports = {
     'plugin:node/recommended',
     'plugin:prettier/recommended',
     'plugin:promise/recommended',
-    'plugin:security/recommended'
+    'plugin:security/recommended',
+    'plugin:unicorn/recommended'
   ],
   rules
 };
