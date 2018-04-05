@@ -1,9 +1,19 @@
 const rules = require('./node.rules.eslintrc');
 
 module.exports = {
-  plugins: ['jest', 'jsdoc', 'node', 'optimize-regex', 'prettier', 'promise', 'security'],
+  plugins: [
+    'eslint-comments',
+    'jest',
+    'jsdoc',
+    'node',
+    'optimize-regex',
+    'prettier',
+    'promise',
+    'security'
+  ],
   extends: [
     'airbnb-base',
+    'plugin:eslint-comments/recommended',
     'plugin:jest/recommended',
     'plugin:jsdoc/recommended',
     'plugin:node/recommended',

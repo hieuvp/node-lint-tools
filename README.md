@@ -11,25 +11,25 @@ By collecting best practices, this project aims to provide **linters** with **ze
 1. Choose your framework
 
 	* Node.js
-	
+
 	```sh
 	$ npm install --save-dev @hieu.van/node-linter
 	```
-	
+
 	* Hapi.js
-	
+
 	```sh
 	$ npm install --save-dev @hieu.van/hapi-linter
 	```
-	
+
 	* React
-	
+
 	```sh
 	$ npm install --save-dev @hieu.van/react-linter
 	```
-	
+
 	* React Native
-	
+
 	```sh
 	$ npm install --save-dev @hieu.van/react-native-linter
 	```
