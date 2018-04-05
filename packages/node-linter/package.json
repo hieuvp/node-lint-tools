@@ -28,6 +28,7 @@
   },
   "peerDependencies": {
     "glob": "^7.1.2",
+    "minimatch": "^3.0.4",
     "runjs": "^4.3.2"
   }
 }

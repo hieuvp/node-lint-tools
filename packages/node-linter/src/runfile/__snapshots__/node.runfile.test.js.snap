@@ -3,3 +3,7 @@
 exports[`args validation should only accept one args if contains a wildcard (.) otherwise will throw error 1`] = `"Wildcard (.) is already covered everything, there's no need to define more arguments"`;
 
 exports[`args validation should throw an error if args is empty 1`] = `"Please specify patterns or files"`;
+
+exports[`args validation should throw an error if args is in the blacklist 1`] = `"Path \\"package.json\\" is blacklisted"`;
+
+exports[`args validation should throw an error if file or directory does not exist 1`] = `"ENOENT: no such file or directory, stat 'src'"`;

@@ -11,5 +11,14 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:security/recommended'
   ],
-  rules
+  rules,
+  overrides: [
+    {
+      files: ['runfile.js', '*.test.js', '*.spec.js'],
+      rules: {
+        'node/no-extraneous-require': 'off',
+        'import/no-extraneous-dependencies': 'off'
+      }
+    }
+  ]
 };

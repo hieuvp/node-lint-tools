@@ -1,6 +1,4 @@
-const { statSync } = require('fs');
-
-// eslint-disable-next-line node/no-extraneous-require, import/no-extraneous-dependencies
+const fs = require('fs');
 const minimatch = require('minimatch');
 const { options } = require('runjs');
 
@@ -24,8 +22,9 @@ module.exports = function lint(...args) {
   }
 
   const paths = args.map(path => {
-    const stats = statSync(path);
-    if (stats.isDirectory()) {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    const stats = fs.statSync(path);
+    if (path !== '.' && stats.isDirectory()) {
       return path.replace(/\/*$/, '/');
     }
     return path;
@@ -33,7 +32,7 @@ module.exports = function lint(...args) {
 
   paths.forEach(path => {
     if (blacklist.some(pattern => minimatch(path, pattern))) {
-      throw new Error(`${path} is in the blacklist`);
+      throw new Error(`Path "${path}" is blacklisted`);
     }
   });
 
