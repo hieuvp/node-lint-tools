@@ -19,6 +19,16 @@ Object {
     "prettier/react",
     "plugin:react-native/all",
   ],
+  "overrides": Array [
+    Object {
+      "files": Array [
+        "./runfile.js",
+        "*.test.js",
+        "*.spec.js",
+      ],
+      "rules": Object {},
+    },
+  ],
   "plugins": Array [
     "eslint-comments",
     "jest",
@@ -38,18 +48,6 @@ Object {
     "comma-dangle": Array [
       "error",
       "never",
-    ],
-    "import/no-extraneous-dependencies": Array [
-      "error",
-      Object {
-        "devDependencies": Array [
-          "/runfile.js",
-          "/src/**/*.test.js",
-          "/src/**/*.spec.js",
-          "/packages/**/src/**/*.test.js",
-          "/packages/**/src/**/*.spec.js",
-        ],
-      },
     ],
     "jsdoc/require-param-description": "off",
     "optimize-regex/optimize-regex": "warn",
