@@ -1,3 +1,4 @@
+const devRules = require('./node.dev-rules.eslintrc');
 const rules = require('./node.rules.eslintrc');
 
 module.exports = {
@@ -23,5 +24,11 @@ module.exports = {
     'plugin:security/recommended',
     'plugin:unicorn/recommended'
   ],
-  rules
+  rules,
+  overrides: [
+    {
+      files: ['runfile.js', '*.test.js', '*.spec.js'],
+      rules: devRules
+    }
+  ]
 };
