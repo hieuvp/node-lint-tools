@@ -26,7 +26,10 @@ Object {
         "*.test.js",
         "*.spec.js",
       ],
-      "rules": Object {},
+      "rules": Object {
+        "import/no-extraneous-dependencies": "off",
+        "node/no-extraneous-require": "off",
+      },
     },
   ],
   "plugins": Array [
