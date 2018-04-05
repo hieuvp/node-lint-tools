@@ -27,7 +27,7 @@ module.exports = {
   rules,
   overrides: [
     {
-      files: ['./runfile.js', '*.test.js', '*.spec.js'],
+      files: ['runfile.js', '*.test.js', '*.spec.js'],
       rules: devRules
     }
   ]

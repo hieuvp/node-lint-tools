@@ -16,7 +16,7 @@ Object {
   "overrides": Array [
     Object {
       "files": Array [
-        "./runfile.js",
+        "runfile.js",
         "*.test.js",
         "*.spec.js",
       ],
