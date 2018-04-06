@@ -1,4 +1,5 @@
 const each = require('jest-each');
+
 const lint = require('./node.runfile');
 const { eslint } = require('./eslint.runfile');
 const { jsonlint } = require('./jsonlint.runfile');
@@ -21,6 +22,8 @@ const validatedArgs = [
   ['runfile.js', 'packages/']
 ];
 
+// Set default Jest working directory to $ProjectFileDir$ (absolute path)
+// if you are using WebStorm and want to run a single test
 describe('args validation', () => {
   afterEach(() => {
     jest.resetAllMocks();
