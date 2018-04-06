@@ -43,19 +43,17 @@ describe('args validation', () => {
     expect(() => lint('.', 'src')).toThrowErrorMatchingSnapshot();
   });
 
-  it('should throw an error if file or directory does not exist', () => {
-    expect(() => lint('src')).toThrowErrorMatchingSnapshot();
+  ['src', 'test/', 'config.js'].forEach(args => {
+    it(`should throw an error because "${args}" does not exist`, () => {
+      expect(() => lint(args)).toThrowErrorMatchingSnapshot();
+    });
   });
 
-  it('should throw an error if args is in the blacklist', () => {
-    expect(() => lint('package.json')).toThrowErrorMatchingSnapshot();
+  ['package.json', 'node_modules', 'packages/node-linter/node_modules/'].forEach(args => {
+    it(`should throw an error because "${args}" is in the blacklist`, () => {
+      expect(() => lint(args)).toThrowErrorMatchingSnapshot();
+    });
   });
-
-  // TODO: if directory, adding a trailing slash
-  // TODO: else we will miss node_modules
-
-  // TODO: test file exists
-  // TODO: test directory transformation
 });
 
 describe('linters invocation', () => {
