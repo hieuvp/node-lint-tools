@@ -12,15 +12,16 @@ const { prettier } = require('./prettier.runfile');
  */
 module.exports = function lint(...args) {
   if (args.length === 0) {
-    throw new TypeError('Please specify patterns or files');
+    throw new Error('Please specify patterns or files');
   }
 
   if (args.includes('.') && args.length !== 1) {
-    throw new TypeError(
+    throw new Error(
       "Wildcard (.) is already covered everything, there's no need to define more arguments"
     );
   }
 
+  // Add trailing slash to directory
   const paths = args.map(path => {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     const stats = fs.statSync(path);
@@ -30,13 +31,14 @@ module.exports = function lint(...args) {
     return path;
   });
 
+  // Forbid path that is in the blacklist
   paths.forEach(path => {
     if (blacklist.some(pattern => minimatch(path, pattern))) {
       throw new Error(`Path "${path}" is blacklisted`);
     }
   });
 
-  // If using Arrow Function here, the value of "this" will be lost
+  // If using Arrow Function, the value of "this" will be lost
   const { ci, fix } = options(this);
 
   // ESLint - The pluggable linting utility for JavaScript and JSX
