@@ -22,8 +22,11 @@ const validatedArgs = [
   ['runfile.js', 'packages/']
 ];
 
-// Set default Jest working directory to $ProjectFileDir$ (absolute path)
-// if you are using WebStorm and want to run a single test
+/**
+ * Set default Jest working directory to $ProjectFileDir$ (absolute path)
+ * if you are using WebStorm and want to run a single test
+ */
+
 describe('args validation', () => {
   afterEach(() => {
     jest.resetAllMocks();
@@ -43,12 +46,14 @@ describe('args validation', () => {
     expect(() => lint('.', 'src')).toThrowErrorMatchingSnapshot();
   });
 
+  // TODO: using each
   ['src', 'test/', 'config.js'].forEach(args => {
     it(`should throw an error because "${args}" does not exist`, () => {
       expect(() => lint(args)).toThrowErrorMatchingSnapshot();
     });
   });
 
+  // TODO: using each
   ['package.json', 'node_modules', 'packages/node-linter/node_modules/'].forEach(args => {
     it(`should throw an error because "${args}" is in the blacklist`, () => {
       expect(() => lint(args)).toThrowErrorMatchingSnapshot();
@@ -56,25 +61,33 @@ describe('args validation', () => {
   });
 });
 
+describe('args transformation', () => {});
+
 describe('linters invocation', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
 
+  // TODO: test order
+  it('should delegate to all runners with a correct order', () => {
+    // eslint
+    // jsonlint
+    // prettier
+    // use https://github.com/jest-community/jest-extended
+  });
+
   validatedArgs.forEach(args => {
-    it(`should delegate to eslint with the transformed args ${JSON.stringify(
-      args
-    )}`, () => {
+    it(`should happily delegate to eslint with ${JSON.stringify(args)}`, () => {
       lint(...args);
       expect(eslint).toHaveBeenCalledTimes(1);
       expect(eslint.mock.calls[0][0]).toEqual(args);
     });
   });
 
+  it('should run eslint with transformed paths', () => {});
+
   validatedArgs.forEach(args => {
-    it(`should delegate to jsonlint with the transformed args ${JSON.stringify(
-      args
-    )}`, () => {
+    it(`should happily delegate to jsonlint with ${JSON.stringify(args)}`, () => {
       lint(...args);
       expect(jsonlint).toHaveBeenCalledTimes(1);
       expect(jsonlint.mock.calls[0][0]).toEqual(args);
@@ -82,9 +95,7 @@ describe('linters invocation', () => {
   });
 
   validatedArgs.forEach(args => {
-    it(`should delegate to prettier with the transformed args ${JSON.stringify(
-      args
-    )}`, () => {
+    it(`should happily delegate to prettier with ${JSON.stringify(args)}`, () => {
       lint(...args);
       expect(prettier).toHaveBeenCalledTimes(1);
       expect(prettier.mock.calls[0][0]).toEqual(args);
