@@ -27,7 +27,7 @@
   "devDependencies": {
     "jest": "^22.4.3",
     "jest-each": "^0.3.1",
-    "lerna": "^2.9.1",
+    "lerna": "^2.10.0",
     "runjs": "^4.3.2"
   }
 }
