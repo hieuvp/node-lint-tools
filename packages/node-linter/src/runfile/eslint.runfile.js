@@ -1,7 +1,7 @@
 const { run } = require('runjs');
 
 /**
- * @param {String[]} args
+ * @param {Array<string>} args
  * @param {Object} opts
  * @param {boolean} opts.ci
  * @param {boolean} opts.fix
