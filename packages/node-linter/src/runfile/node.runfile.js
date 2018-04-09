@@ -8,7 +8,7 @@ const { jsonlint } = require('./jsonlint.runfile');
 const { prettier } = require('./prettier.runfile');
 
 /**
- * @param {...String} args
+ * @param {...string} args
  */
 module.exports = function lint(...args) {
   if (args.length === 0) {
