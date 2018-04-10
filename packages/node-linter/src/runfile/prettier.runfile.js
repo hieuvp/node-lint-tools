@@ -6,7 +6,7 @@ const { run } = require('runjs');
  * @param {boolean} opts.ci
  * @param {boolean} opts.fix
  */
-const prettier = (args, opts = {}) => {
+const prettier = async (args, opts = {}) => {
   const { ci = false, fix = false } = opts;
 };
 
