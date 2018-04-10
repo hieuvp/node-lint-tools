@@ -10,7 +10,7 @@ const { prettier } = require('./prettier.runfile');
 /**
  * @param {...string} args
  */
-module.exports = async function lint(...args) {
+module.exports = function lint(...args) {
   if (args.length === 0) {
     throw new Error('Please specify patterns or files');
   }
@@ -41,12 +41,13 @@ module.exports = async function lint(...args) {
   // If using Arrow Function, the value of "this" will be lost
   const { ci, fix } = options(this);
 
-  // ESLint - The pluggable linting utility for JavaScript and JSX
-  await eslint(paths, { ci: !!ci, fix: !!fix });
-
-  // JSON Lint - A JSON parser and validator
-  await jsonlint(paths, { ci: !!ci, fix: !!fix });
-
-  // Prettier - An opinionated code formatter
-  await prettier(paths, { ci: !!ci, fix: !!fix });
+  return (
+    Promise.resolve()
+      // ESLint - The pluggable linting utility for JavaScript and JSX
+      .then(() => eslint(paths, { ci: !!ci, fix: !!fix }))
+      // JSON Lint - A JSON parser and validator
+      .then(() => jsonlint(paths, { ci: !!ci, fix: !!fix }))
+      // Prettier - An opinionated code formatter
+      .then(() => prettier(paths, { ci: !!ci, fix: !!fix }))
+  );
 };
