@@ -1,17 +1,29 @@
 const lint = require('./node.runfile');
 const { eslint } = require('./eslint.runfile');
 const { jsonlint } = require('./jsonlint.runfile');
+const { prettier } = require('./prettier.runfile');
 
 jest.mock('./eslint.runfile', () => ({ eslint: jest.fn() }));
 jest.mock('./jsonlint.runfile', () => ({ jsonlint: jest.fn() }));
+jest.mock('./prettier.runfile', () => ({ prettier: jest.fn() }));
 
 const validatedArgs = [
   ['.'],
-  ['src', 'test', 'config'],
-  ['src', 'test'],
-  ['src', 'config'],
-  ['test']
+  [
+    'packages/hapi-linter/',
+    'packages/node-linter/',
+    'packages/react-linter/',
+    'packages/react-native-linter/'
+  ],
+  ['runfile.js', '.eslintrc.js'],
+  ['runfile.js', '.eslintrc.js', 'packages/'],
+  ['runfile.js', 'packages/']
 ];
+
+/**
+ * Set default Jest working directory to $ProjectFileDir$ (absolute path)
+ * if you are using WebStorm and want to run a single test
+ */
 
 describe('args validation', () => {
   afterEach(() => {
@@ -31,26 +43,16 @@ describe('args validation', () => {
   it('should only accept one args if contains a wildcard (.) otherwise will throw error', () => {
     expect(() => lint('.', 'src')).toThrowErrorMatchingSnapshot();
   });
-});
 
-describe('linters invocation', () => {
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-
-  validatedArgs.forEach(args => {
-    it(`should delegate to eslint with the given args ${JSON.stringify(args)}`, () => {
-      lint(...args);
-      expect(eslint).toHaveBeenCalledTimes(1);
-      expect(eslint.mock.calls[0][0]).toEqual(args);
+  ['src', 'test/', 'config.js'].forEach(args => {
+    it(`should throw an error because "${args}" does not exist`, () => {
+      expect(() => lint(args)).toThrowErrorMatchingSnapshot();
     });
   });
 
-  validatedArgs.forEach(args => {
-    it(`should delegate to jsonlint with the given args ${JSON.stringify(args)}`, () => {
-      lint(...args);
-      expect(jsonlint).toHaveBeenCalledTimes(1);
-      expect(jsonlint.mock.calls[0][0]).toEqual(args);
+  ['package.json', 'node_modules', 'packages/node-linter/node_modules/'].forEach(args => {
+    it(`should throw an error because "${args}" is in the blacklist`, () => {
+      expect(() => lint(args)).toThrowErrorMatchingSnapshot();
     });
   });
 });
