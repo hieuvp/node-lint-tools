@@ -46,13 +46,13 @@ describe('args validation', () => {
 
   ['src', 'test/', 'config.js'].forEach(args => {
     it(`should throw an error because ${args} does not exist`, () => {
-      expect(() => lint(...args)).toThrowErrorMatchingSnapshot();
+      expect(() => lint(args)).toThrowErrorMatchingSnapshot();
     });
   });
 
   ['package.json', 'node_modules', 'packages/node-linter/node_modules/'].forEach(args => {
     it(`should throw an error because ${args} is in the blacklist`, () => {
-      expect(() => lint(...args)).toThrowErrorMatchingSnapshot();
+      expect(() => lint(args)).toThrowErrorMatchingSnapshot();
     });
   });
 });
