@@ -30,5 +30,8 @@
     "jest-extended": "^0.6.0",
     "lerna": "^2.10.0",
     "runjs": "^4.3.2"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "jest-extended"
   }
 }

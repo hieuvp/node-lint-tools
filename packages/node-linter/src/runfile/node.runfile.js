@@ -10,7 +10,7 @@ const { prettier } = require('./prettier.runfile');
 /**
  * @param {...string} args
  */
-module.exports = function lint(...args) {
+module.exports = async function lint(...args) {
   if (args.length === 0) {
     throw new Error('Please specify patterns or files');
   }
@@ -42,11 +42,11 @@ module.exports = function lint(...args) {
   const { ci, fix } = options(this);
 
   // ESLint - The pluggable linting utility for JavaScript and JSX
-  eslint(paths, { ci: !!ci, fix: !!fix });
+  await eslint(paths, { ci: !!ci, fix: !!fix });
 
   // JSON Lint - A JSON parser and validator
-  jsonlint(paths, { ci: !!ci, fix: !!fix });
+  await jsonlint(paths, { ci: !!ci, fix: !!fix });
 
   // Prettier - An opinionated code formatter
-  prettier(paths, { ci: !!ci, fix: !!fix });
+  await prettier(paths, { ci: !!ci, fix: !!fix });
 };

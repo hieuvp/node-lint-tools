@@ -6,7 +6,7 @@ const { run } = require('runjs');
  * @param {boolean} opts.ci
  * @param {boolean} opts.fix
  */
-const eslint = (args, opts = {}) => {
+const eslint = async (args, opts = {}) => {
   const { ci = false, fix = false } = opts;
 };
 
