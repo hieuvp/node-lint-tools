@@ -1,5 +1,3 @@
-const each = require('jest-each');
-
 const lint = require('./node.runfile');
 const { eslint } = require('./eslint.runfile');
 const { jsonlint } = require('./jsonlint.runfile');
@@ -10,18 +8,16 @@ jest.mock('./jsonlint.runfile', () => ({ jsonlint: jest.fn() }));
 jest.mock('./prettier.runfile', () => ({ prettier: jest.fn() }));
 
 const validatedArgs = [
-  [['.']],
+  ['.'],
   [
-    [
-      'packages/hapi-linter/',
-      'packages/node-linter/',
-      'packages/react-linter/',
-      'packages/react-native-linter/'
-    ]
+    'packages/hapi-linter/',
+    'packages/node-linter/',
+    'packages/react-linter/',
+    'packages/react-native-linter/'
   ],
-  [['runfile.js', '.eslintrc.js']],
-  [['runfile.js', '.eslintrc.js', 'packages/']],
-  [['runfile.js', 'packages/']]
+  ['runfile.js', '.eslintrc.js'],
+  ['runfile.js', '.eslintrc.js', 'packages/'],
+  ['runfile.js', 'packages/']
 ];
 
 /**
@@ -34,8 +30,10 @@ describe('args validation', () => {
     jest.resetAllMocks();
   });
 
-  each(validatedArgs).it('should be happy because [%s] is a validated args', args => {
-    expect(() => lint(...args)).not.toThrow();
+  validatedArgs.forEach(args => {
+    it(`should be happy because ${JSON.stringify(args)} is a validated args`, () => {
+      expect(() => lint(...args)).not.toThrow();
+    });
   });
 
   it('should throw an error if args is empty', () => {
@@ -46,53 +44,15 @@ describe('args validation', () => {
     expect(() => lint('.', 'src')).toThrowErrorMatchingSnapshot();
   });
 
-  each([[['src']], [['test/']], [['config.js']]]).it(
-    'should throw an error because [%s] does not exist',
-    args => {
+  ['src', 'test/', 'config.js'].forEach(args => {
+    it(`should throw an error because ${args} does not exist`, () => {
       expect(() => lint(...args)).toThrowErrorMatchingSnapshot();
-    }
-  );
-
-  each([
-    [['package.json']],
-    [['node_modules']],
-    [['packages/node-linter/node_modules/']]
-  ]).it(`should throw an error because [%s] is in the blacklist`, args => {
-    expect(() => lint(...args)).toThrowErrorMatchingSnapshot();
-  });
-});
-
-describe('linters invocation', () => {
-  const timeout = time => () => new Promise(res => setTimeout(() => res()), time);
-
-  afterEach(() => {
-    jest.resetAllMocks();
+    });
   });
 
-  each(validatedArgs).it(
-    'should delegate to all runners with in the correct order',
-    async args => {
-      eslint.mockImplementation(timeout(1));
-      jsonlint.mockImplementation(timeout(1));
-      prettier.mockImplementation(timeout(1));
-
-      await lint(...args);
-
-      expect(eslint).toHaveBeenCalledTimes(1);
-      expect(eslint.mock.calls[0][0]).toEqual(args);
-      expect(eslint).toHaveBeenCalledBefore(jsonlint);
-      expect(eslint).toHaveBeenCalledBefore(prettier);
-
-      expect(jsonlint).toHaveBeenCalledTimes(1);
-      expect(jsonlint.mock.calls[0][0]).toEqual(args);
-      expect(jsonlint).toHaveBeenCalledBefore(prettier);
-
-      expect(prettier).toHaveBeenCalledTimes(1);
-      expect(prettier.mock.calls[0][0]).toEqual(args);
-    }
-  );
-
-  it('should run eslint with transformed paths', () => {});
-
-  it('should test ci, fix', () => {});
+  ['package.json', 'node_modules', 'packages/node-linter/node_modules/'].forEach(args => {
+    it(`should throw an error because ${args} is in the blacklist`, () => {
+      expect(() => lint(...args)).toThrowErrorMatchingSnapshot();
+    });
+  });
 });

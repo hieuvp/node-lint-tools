@@ -2,16 +2,16 @@
 
 exports[`args validation should only accept one args if contains a wildcard (.) otherwise will throw error 1`] = `"Wildcard (.) is already covered everything, there's no need to define more arguments"`;
 
-exports[`args validation should throw an error because [config.js] does not exist 1`] = `"ENOENT: no such file or directory, stat 'config.js'"`;
+exports[`args validation should throw an error because config.js does not exist 1`] = `"Wildcard (.) is already covered everything, there's no need to define more arguments"`;
 
-exports[`args validation should throw an error because [node_modules] is in the blacklist 1`] = `"Path \\"node_modules/\\" is blacklisted"`;
+exports[`args validation should throw an error because node_modules is in the blacklist 1`] = `"ENOENT: no such file or directory, stat 'n'"`;
 
-exports[`args validation should throw an error because [package.json] is in the blacklist 1`] = `"Path \\"package.json\\" is blacklisted"`;
+exports[`args validation should throw an error because package.json is in the blacklist 1`] = `"Wildcard (.) is already covered everything, there's no need to define more arguments"`;
 
-exports[`args validation should throw an error because [packages/node-linter/node_modules/] is in the blacklist 1`] = `"Path \\"packages/node-linter/node_modules/\\" is blacklisted"`;
+exports[`args validation should throw an error because packages/node-linter/node_modules/ is in the blacklist 1`] = `"ENOENT: no such file or directory, stat 'p'"`;
 
-exports[`args validation should throw an error because [src] does not exist 1`] = `"ENOENT: no such file or directory, stat 'src'"`;
+exports[`args validation should throw an error because src does not exist 1`] = `"ENOENT: no such file or directory, stat 's'"`;
 
-exports[`args validation should throw an error because [test/] does not exist 1`] = `"ENOENT: no such file or directory, stat 'test/'"`;
+exports[`args validation should throw an error because test/ does not exist 1`] = `"ENOENT: no such file or directory, stat 't'"`;
 
 exports[`args validation should throw an error if args is empty 1`] = `"Please specify patterns or files"`;
