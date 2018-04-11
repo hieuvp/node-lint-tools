@@ -56,3 +56,33 @@ describe('args validation', () => {
     });
   });
 });
+
+describe('linters invocation', () => {
+  // eslint-disable-next-line promise/avoid-new
+  const sleep = ms => () => new Promise(resolve => setTimeout(resolve, ms));
+
+  beforeEach(() => {
+    eslint.mockImplementation(sleep(1));
+    jsonlint.mockImplementation(sleep(1));
+    prettier.mockImplementation(sleep(1));
+  });
+
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  validatedArgs.forEach(args => {
+    it(`should run all linters in order when giving ${JSON.stringify(args)}`, async () => {
+      await lint(...args);
+
+      expect(eslint).toHaveBeenCalledTimes(1);
+      expect(eslint).toHaveBeenCalledBefore(jsonlint);
+      expect(eslint).toHaveBeenCalledBefore(prettier);
+
+      expect(jsonlint).toHaveBeenCalledTimes(1);
+      expect(jsonlint).toHaveBeenCalledBefore(prettier);
+
+      expect(prettier).toHaveBeenCalledTimes(1);
+    });
+  });
+});
