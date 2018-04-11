@@ -1,7 +1,11 @@
+const { options } = require('runjs');
+
 const lint = require('./node.runfile');
 const { eslint } = require('./eslint.runfile');
 const { jsonlint } = require('./jsonlint.runfile');
 const { prettier } = require('./prettier.runfile');
+
+jest.mock('runjs', () => ({ options: jest.fn() }));
 
 jest.mock('./eslint.runfile', () => ({ eslint: jest.fn() }));
 jest.mock('./jsonlint.runfile', () => ({ jsonlint: jest.fn() }));
@@ -26,6 +30,13 @@ const validatedArgs = [
  */
 
 describe('args validation', () => {
+  beforeEach(() => {
+    options.mockImplementation(() => ({}));
+    eslint.mockImplementation(() => Promise.resolve());
+    jsonlint.mockImplementation(() => Promise.resolve());
+    prettier.mockImplementation(() => Promise.resolve());
+  });
+
   afterEach(() => {
     jest.resetAllMocks();
   });
@@ -62,9 +73,10 @@ describe('linters invocation', () => {
   const sleep = ms => () => new Promise(resolve => setTimeout(resolve, ms));
 
   beforeEach(() => {
-    eslint.mockImplementation(sleep(1));
-    jsonlint.mockImplementation(sleep(1));
-    prettier.mockImplementation(sleep(1));
+    options.mockImplementation(() => ({}));
+    eslint.mockImplementation(() => Promise.resolve());
+    jsonlint.mockImplementation(() => Promise.resolve());
+    prettier.mockImplementation(() => Promise.resolve());
   });
 
   afterEach(() => {
@@ -73,6 +85,10 @@ describe('linters invocation', () => {
 
   validatedArgs.forEach(args => {
     it(`should run all linters in order when giving ${JSON.stringify(args)}`, async () => {
+      eslint.mockImplementation(sleep(2));
+      jsonlint.mockImplementation(sleep(2));
+      prettier.mockImplementation(sleep(2));
+
       await lint(...args);
 
       expect(eslint).toHaveBeenCalledTimes(1);
@@ -83,6 +99,27 @@ describe('linters invocation', () => {
       expect(jsonlint).toHaveBeenCalledBefore(prettier);
 
       expect(prettier).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  [
+    { args: '.', transformedArgs: ['.'] },
+    { args: 'runfile.js', transformedArgs: ['runfile.js'] },
+    { args: 'jest.config.js', transformedArgs: ['jest.config.js'] },
+    { args: 'packages', transformedArgs: ['packages/'] },
+    { args: 'packages/', transformedArgs: ['packages/'] },
+    { args: 'packages///', transformedArgs: ['packages/'] }
+  ].forEach(({ args, transformedArgs }) => {
+    it(`should transform "${args}" to "${transformedArgs}" when delegating to another runners`, async () => {
+      const opts = { ci: undefined, fix: true };
+      const transformedOpts = { ci: false, fix: true };
+      options.mockImplementation(() => opts);
+
+      await lint(args);
+
+      expect(eslint).toBeCalledWith(transformedArgs, transformedOpts);
+      expect(jsonlint).toBeCalledWith(transformedArgs, transformedOpts);
+      expect(prettier).toBeCalledWith(transformedArgs, transformedOpts);
     });
   });
 });

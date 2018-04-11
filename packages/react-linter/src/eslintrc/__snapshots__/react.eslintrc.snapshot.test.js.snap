@@ -55,7 +55,7 @@ Object {
     "prettier/prettier": Array [
       "error",
       Object {
-        "printWidth": 90,
+        "printWidth": 96,
         "singleQuote": true,
       },
     ],
