@@ -1,4 +1,5 @@
 const glob = require('glob');
+
 const { getPatternByExtension } = require('./glob.utils');
 
 describe('getPatternByExtension', () => {
@@ -14,7 +15,7 @@ describe('getPatternByExtension', () => {
   ];
 
   extensions.forEach(extension => {
-    it(`should match snapshot when sending ${JSON.stringify(extension)}`, () => {
+    it(`should match snapshot when calling with ${JSON.stringify(extension)}`, () => {
       expect(getPatternByExtension(extension)).toMatchSnapshot();
     });
 
