@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getPatternByExtension should throw an error because "1" is not an array 1`] = `"Expected \\"Array\\", instead got \\"1: number\\""`;
+
+exports[`getPatternByExtension should throw an error because "null" is not an array 1`] = `"Expected \\"Array\\", instead got \\"null: object\\""`;
+
+exports[`getPatternByExtension should throw an error because "string" is not an array 1`] = `"Expected \\"Array\\", instead got \\"string: string\\""`;
+
+exports[`getPatternByExtension should throw an error because "true" is not an array 1`] = `"Expected \\"Array\\", instead got \\"true: boolean\\""`;
+
+exports[`getPatternByExtension should throw an error because "undefined" is not an array 1`] = `"Expected \\"Array\\", instead got \\"undefined: undefined\\""`;
+
+exports[`getPatternByExtension should throw an error if args is empty 1`] = `"Args \\"[]\\" must have at least one element"`;
