@@ -1,5 +1,1 @@
-const glob = require('./glob.utils');
-
-module.exports = {
-  glob
-};
+module.exports = require('./node.utils');
