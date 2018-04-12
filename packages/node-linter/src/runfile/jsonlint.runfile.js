@@ -5,7 +5,9 @@ const { run } = require('runjs');
 
 const blacklist = require('./blacklist.runfile');
 
-const pattern = '**/*.json';
+// TODO: extract to utils
+const extension = ['json', 'js', 'md'];
+const pattern = extension.length > 1 ? `**/*.{${extension.join(',')}}` : `**/*.${extension[0]}`;
 
 /**
  * @param {string} args
@@ -17,10 +19,13 @@ const parseJSONLintArgs = args => {
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   const stats = fs.statSync(args);
   if (args === '.') {
+    // TODO: improve code duplication here
     paths.push(...glob.sync(pattern, { ignore: blacklist }));
   } else if (stats.isDirectory()) {
     paths.push(...glob.sync(`${args}/${pattern}`, { ignore: blacklist }));
   } else if (stats.isFile() && minimatch(args, pattern)) {
+    // TODO: how about blacklist
+    // TODO: then snapshots with package.json will be removed
     paths.push(args);
   }
 

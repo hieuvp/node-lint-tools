@@ -68,4 +68,10 @@ Array [
 ]
 `;
 
+exports[`should match snapshot when parsing "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json" 1`] = `
+Array [
+  "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json",
+]
+`;
+
 exports[`should match snapshot when parsing "runfile.js" 1`] = `Array []`;
