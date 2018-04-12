@@ -14,6 +14,8 @@ const { parseJSONLintArgs } = require('./jsonlint.runfile');
   'packages/node-linter/src/runfile/blacklist.runfile.json',
   'packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json'
 ].forEach(args => {
+  // TODO: with json
+  // TODO: more precise description
   it(`should match snapshot when parsing "${args}"`, () => {
     expect(parseJSONLintArgs(args)).toMatchSnapshot();
   });
