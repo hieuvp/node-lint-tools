@@ -110,9 +110,10 @@ describe('linters invocation', () => {
     { args: 'packages/', transformedArgs: ['packages/'] },
     { args: 'packages///', transformedArgs: ['packages/'] }
   ].forEach(({ args, transformedArgs }) => {
-    it(`should transform "${args}" to "${transformedArgs}" when delegating to another runners`, async () => {
+    it(`should transform "${args}" to "${transformedArgs}" before delegating to linters`, async () => {
       const opts = { ci: undefined, fix: true };
       const transformedOpts = { ci: false, fix: true };
+
       options.mockImplementation(() => opts);
 
       await lint(args);
