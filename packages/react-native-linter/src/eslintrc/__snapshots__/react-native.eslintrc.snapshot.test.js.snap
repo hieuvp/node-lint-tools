@@ -53,6 +53,7 @@ Object {
       "never",
     ],
     "jsdoc/require-param-description": "off",
+    "jsdoc/require-returns-description": "off",
     "optimize-regex/optimize-regex": "warn",
     "prettier/prettier": Array [
       "error",
