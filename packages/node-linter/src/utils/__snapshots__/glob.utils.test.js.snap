@@ -10,4 +10,4 @@ exports[`getPatternByExtension should throw an error because "true" is not an ar
 
 exports[`getPatternByExtension should throw an error because "undefined" is not an array 1`] = `"Expected \\"Array\\", instead got \\"undefined: undefined\\""`;
 
-exports[`getPatternByExtension should throw an error if args is empty 1`] = `"Expected \\"Array\\", instead got \\"undefined: undefined\\""`;
+exports[`getPatternByExtension should throw an error if args is empty 1`] = `"Args \\"[]\\" must have at least one element"`;

@@ -8,6 +8,6 @@ describe('getPatternByExtension', () => {
   });
 
   it('should throw an error if args is empty', () => {
-    expect(() => getPatternByExtension()).toThrowErrorMatchingSnapshot();
+    expect(() => getPatternByExtension([])).toThrowErrorMatchingSnapshot();
   });
 });

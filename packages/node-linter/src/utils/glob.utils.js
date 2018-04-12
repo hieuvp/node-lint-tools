@@ -8,7 +8,7 @@ const getPatternByExtension = args => {
   }
 
   if (args.length === 0) {
-    throw new Error('Must have at least one element');
+    throw new Error(`Args "${JSON.stringify(args)}" must have at least one element`);
   }
 
   const patterns = args.reduce(
