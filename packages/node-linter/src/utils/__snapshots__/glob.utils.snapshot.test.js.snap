@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getPatternByExtension should list all files with extension ["js","json","yml","md"] 1`] = `
+Array [
+  ".eslintrc.js",
+  ".travis.yml",
+  "jest.config.js",
+  "lerna.json",
+  "package-lock.json",
+  "package.json",
+  "README.md",
+  "runfile.js",
+]
+`;
+
+exports[`getPatternByExtension should list all files with extension ["js","json","yml"] 1`] = `
+Array [
+  ".eslintrc.js",
+  ".travis.yml",
+  "jest.config.js",
+  "lerna.json",
+  "package-lock.json",
+  "package.json",
+  "runfile.js",
+]
+`;
+
+exports[`getPatternByExtension should list all files with extension ["js","yml"] 1`] = `
+Array [
+  ".eslintrc.js",
+  ".travis.yml",
+  "jest.config.js",
+  "runfile.js",
+]
+`;
+
+exports[`getPatternByExtension should list all files with extension ["js"] 1`] = `
+Array [
+  ".eslintrc.js",
+  "jest.config.js",
+  "runfile.js",
+]
+`;
+
+exports[`getPatternByExtension should list all files with extension ["json","md"] 1`] = `
+Array [
+  "lerna.json",
+  "package-lock.json",
+  "package.json",
+  "README.md",
+]
+`;
+
+exports[`getPatternByExtension should list all files with extension ["json"] 1`] = `
+Array [
+  "lerna.json",
+  "package-lock.json",
+  "package.json",
+]
+`;
+
+exports[`getPatternByExtension should list all files with extension ["md"] 1`] = `
+Array [
+  "README.md",
+]
+`;
+
+exports[`getPatternByExtension should list all files with extension ["yml"] 1`] = `
+Array [
+  ".travis.yml",
+]
+`;
+
+exports[`getPatternByExtension should match snapshot when calling with ["js","json","yml","md"] 1`] = `"{*.js,.*.js,*.json,.*.json,*.yml,.*.yml,*.md,.*.md}"`;
+
+exports[`getPatternByExtension should match snapshot when calling with ["js","json","yml"] 1`] = `"{*.js,.*.js,*.json,.*.json,*.yml,.*.yml}"`;
+
+exports[`getPatternByExtension should match snapshot when calling with ["js","yml"] 1`] = `"{*.js,.*.js,*.yml,.*.yml}"`;
+
+exports[`getPatternByExtension should match snapshot when calling with ["js"] 1`] = `"{*.js,.*.js}"`;
+
+exports[`getPatternByExtension should match snapshot when calling with ["json","md"] 1`] = `"{*.json,.*.json,*.md,.*.md}"`;
+
+exports[`getPatternByExtension should match snapshot when calling with ["json"] 1`] = `"{*.json,.*.json}"`;
+
+exports[`getPatternByExtension should match snapshot when calling with ["md"] 1`] = `"{*.md,.*.md}"`;
+
+exports[`getPatternByExtension should match snapshot when calling with ["yml"] 1`] = `"{*.yml,.*.yml}"`;
