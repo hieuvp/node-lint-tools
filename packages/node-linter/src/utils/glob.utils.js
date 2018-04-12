@@ -2,10 +2,7 @@
  * @param {Array<string>} extension
  * @returns {string}
  */
-const getPatternByExtension = extension => {
-  // TODO: throws if not array
-  // TODO: throws if empty
-};
+const getPatternByExtension = extension => {};
 
 module.exports = {
   getPatternByExtension
