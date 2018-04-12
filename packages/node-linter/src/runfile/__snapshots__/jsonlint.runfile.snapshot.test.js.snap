@@ -30,6 +30,12 @@ Array [
 ]
 `;
 
+exports[`should match snapshot when parsing "packages/hapi-linter/" 1`] = `
+Array [
+  "packages/hapi-linter/src/eslintrc/hapi.rules.eslintrc.json",
+]
+`;
+
 exports[`should match snapshot when parsing "packages/hapi-linter/package.json" 1`] = `
 Array [
   "packages/hapi-linter/package.json",
@@ -38,18 +44,27 @@ Array [
 
 exports[`should match snapshot when parsing "packages/node-linter/" 1`] = `
 Array [
-  "packages/hapi-linter/src/eslintrc/hapi.rules.eslintrc.json",
   "packages/node-linter/src/eslintrc/node.dev-rules.eslintrc.json",
   "packages/node-linter/src/eslintrc/node.rules.eslintrc.json",
   "packages/node-linter/src/runfile/blacklist.runfile.json",
-  "packages/react-linter/src/eslintrc/react.rules.eslintrc.json",
-  "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json",
 ]
 `;
 
 exports[`should match snapshot when parsing "packages/node-linter/src/runfile/blacklist.runfile.json" 1`] = `
 Array [
   "packages/node-linter/src/runfile/blacklist.runfile.json",
+]
+`;
+
+exports[`should match snapshot when parsing "packages/react-linter/" 1`] = `
+Array [
+  "packages/react-linter/src/eslintrc/react.rules.eslintrc.json",
+]
+`;
+
+exports[`should match snapshot when parsing "packages/react-native-linter/" 1`] = `
+Array [
+  "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json",
 ]
 `;
 

@@ -3,7 +3,10 @@ const { parseJSONLintArgs } = require('./jsonlint.runfile');
 [
   '.',
   'packages/',
+  'packages/hapi-linter/',
   'packages/node-linter/',
+  'packages/react-linter/',
+  'packages/react-native-linter/',
   'runfile.js',
   'README.md',
   'package.json',

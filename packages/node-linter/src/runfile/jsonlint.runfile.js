@@ -16,8 +16,10 @@ const parseJSONLintArgs = args => {
 
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   const stats = fs.statSync(args);
-  if (stats.isDirectory()) {
+  if (args === '.') {
     paths.push(...glob.sync(pattern, { ignore: blacklist }));
+  } else if (stats.isDirectory()) {
+    paths.push(...glob.sync(`${args}/${pattern}`, { ignore: blacklist }));
   } else if (stats.isFile() && minimatch(args, pattern)) {
     paths.push(args);
   }
