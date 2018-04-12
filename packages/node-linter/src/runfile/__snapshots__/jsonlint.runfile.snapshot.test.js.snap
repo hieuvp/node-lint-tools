@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot when parsing "." 1`] = `
+Array [
+  "packages/hapi-linter/src/eslintrc/hapi.rules.eslintrc.json",
+  "packages/node-linter/src/eslintrc/node.dev-rules.eslintrc.json",
+  "packages/node-linter/src/eslintrc/node.rules.eslintrc.json",
+  "packages/node-linter/src/runfile/blacklist.runfile.json",
+  "packages/react-linter/src/eslintrc/react.rules.eslintrc.json",
+  "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json",
+]
+`;
+
+exports[`should match snapshot when parsing "README.md" 1`] = `Array []`;
+
+exports[`should match snapshot when parsing "package.json" 1`] = `
+Array [
+  "package.json",
+]
+`;
+
+exports[`should match snapshot when parsing "packages/" 1`] = `
+Array [
+  "packages/hapi-linter/src/eslintrc/hapi.rules.eslintrc.json",
+  "packages/node-linter/src/eslintrc/node.dev-rules.eslintrc.json",
+  "packages/node-linter/src/eslintrc/node.rules.eslintrc.json",
+  "packages/node-linter/src/runfile/blacklist.runfile.json",
+  "packages/react-linter/src/eslintrc/react.rules.eslintrc.json",
+  "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json",
+]
+`;
+
+exports[`should match snapshot when parsing "packages/hapi-linter/package.json" 1`] = `
+Array [
+  "packages/hapi-linter/package.json",
+]
+`;
+
+exports[`should match snapshot when parsing "packages/node-linter/" 1`] = `
+Array [
+  "packages/hapi-linter/src/eslintrc/hapi.rules.eslintrc.json",
+  "packages/node-linter/src/eslintrc/node.dev-rules.eslintrc.json",
+  "packages/node-linter/src/eslintrc/node.rules.eslintrc.json",
+  "packages/node-linter/src/runfile/blacklist.runfile.json",
+  "packages/react-linter/src/eslintrc/react.rules.eslintrc.json",
+  "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json",
+]
+`;
+
+exports[`should match snapshot when parsing "packages/node-linter/src/runfile/blacklist.runfile.json" 1`] = `
+Array [
+  "packages/node-linter/src/runfile/blacklist.runfile.json",
+]
+`;
+
+exports[`should match snapshot when parsing "runfile.js" 1`] = `Array []`;
