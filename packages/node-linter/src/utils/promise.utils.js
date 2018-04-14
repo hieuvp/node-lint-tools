@@ -3,11 +3,11 @@
  * @returns {Promise<any>}
  */
 const sleep = ms => {
-  if (typeof ms !== 'number' || Number.isNaN(ms)) {
+  if (typeof ms !== 'number') {
     throw new TypeError(`Expected "Number", instead got "${ms}: ${typeof ms}"`);
   }
 
-  if (ms <= 0) {
+  if (Number.isNaN(ms) || ms <= 0) {
     throw new Error('Millisecond must be a positive number');
   }
 
