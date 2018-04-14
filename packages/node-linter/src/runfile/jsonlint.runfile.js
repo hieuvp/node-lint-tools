@@ -39,6 +39,7 @@ const parseJSONLintArgs = args => {
  * @param {Object} opts
  * @param {boolean} opts.ci
  * @param {boolean} opts.fix
+ * @returns {Promise<void>}
  */
 const jsonlint = async (args, opts = {}) => {
   const { ci = false, fix = false } = opts;

@@ -1,5 +1,9 @@
 const { options } = require('runjs');
 
+const {
+  promise: { sleep }
+} = require('../utils');
+
 const lint = require('./node.runfile');
 const { eslint } = require('./eslint.runfile');
 const { jsonlint } = require('./jsonlint.runfile');
@@ -69,9 +73,6 @@ describe('args validation', () => {
 });
 
 describe('linters invocation', () => {
-  // eslint-disable-next-line promise/avoid-new
-  const sleep = ms => () => new Promise(resolve => setTimeout(resolve, ms));
-
   beforeEach(() => {
     options.mockImplementation(() => ({}));
     eslint.mockImplementation(() => Promise.resolve());
@@ -85,9 +86,9 @@ describe('linters invocation', () => {
 
   validatedArgs.forEach(args => {
     it(`should run all linters in order when giving ${JSON.stringify(args)}`, async () => {
-      eslint.mockImplementation(sleep(2));
-      jsonlint.mockImplementation(sleep(2));
-      prettier.mockImplementation(sleep(2));
+      eslint.mockImplementation(() => sleep(2));
+      jsonlint.mockImplementation(() => sleep(2));
+      prettier.mockImplementation(() => sleep(2));
 
       await lint(...args);
 
