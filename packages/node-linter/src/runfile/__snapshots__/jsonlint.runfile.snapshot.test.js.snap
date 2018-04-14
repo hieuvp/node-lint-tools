@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should match snapshot when parsing "." 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "." 1`] = `
 Array [
   "packages/hapi-linter/src/eslintrc/hapi.rules.eslintrc.json",
   "packages/node-linter/src/eslintrc/node.dev-rules.eslintrc.json",
@@ -11,15 +11,15 @@ Array [
 ]
 `;
 
-exports[`should match snapshot when parsing "README.md" 1`] = `Array []`;
+exports[`parseJSONLintArgs should match snapshot when parsing with "README.md" 1`] = `Array []`;
 
-exports[`should match snapshot when parsing "package.json" 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "package.json" 1`] = `
 Array [
   "package.json",
 ]
 `;
 
-exports[`should match snapshot when parsing "packages/" 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "packages/" 1`] = `
 Array [
   "packages/hapi-linter/src/eslintrc/hapi.rules.eslintrc.json",
   "packages/node-linter/src/eslintrc/node.dev-rules.eslintrc.json",
@@ -30,19 +30,19 @@ Array [
 ]
 `;
 
-exports[`should match snapshot when parsing "packages/hapi-linter/" 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "packages/hapi-linter/" 1`] = `
 Array [
   "packages/hapi-linter/src/eslintrc/hapi.rules.eslintrc.json",
 ]
 `;
 
-exports[`should match snapshot when parsing "packages/hapi-linter/package.json" 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "packages/hapi-linter/package.json" 1`] = `
 Array [
   "packages/hapi-linter/package.json",
 ]
 `;
 
-exports[`should match snapshot when parsing "packages/node-linter/" 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "packages/node-linter/" 1`] = `
 Array [
   "packages/node-linter/src/eslintrc/node.dev-rules.eslintrc.json",
   "packages/node-linter/src/eslintrc/node.rules.eslintrc.json",
@@ -50,28 +50,28 @@ Array [
 ]
 `;
 
-exports[`should match snapshot when parsing "packages/node-linter/src/runfile/blacklist.runfile.json" 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "packages/node-linter/src/runfile/blacklist.runfile.json" 1`] = `
 Array [
   "packages/node-linter/src/runfile/blacklist.runfile.json",
 ]
 `;
 
-exports[`should match snapshot when parsing "packages/react-linter/" 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "packages/react-linter/" 1`] = `
 Array [
   "packages/react-linter/src/eslintrc/react.rules.eslintrc.json",
 ]
 `;
 
-exports[`should match snapshot when parsing "packages/react-native-linter/" 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "packages/react-native-linter/" 1`] = `
 Array [
   "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json",
 ]
 `;
 
-exports[`should match snapshot when parsing "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json" 1`] = `
+exports[`parseJSONLintArgs should match snapshot when parsing with "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json" 1`] = `
 Array [
   "packages/react-native-linter/src/eslintrc/react-native.rules.eslintrc.json",
 ]
 `;
 
-exports[`should match snapshot when parsing "runfile.js" 1`] = `Array []`;
+exports[`parseJSONLintArgs should match snapshot when parsing with "runfile.js" 1`] = `Array []`;
