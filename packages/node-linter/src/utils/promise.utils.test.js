@@ -13,5 +13,11 @@ describe('sleep', () => {
       expect(() => sleep(args)).toThrowErrorMatchingSnapshot());
   });
 
-  it('should sleep with a given time', () => expect(sleep(10)).resolves.toBe('lemon'));
+  [10, 100, 1000].forEach(args => {
+    it(`should sleep ${args} ms`, () => {
+      const promise = sleep(args);
+      jest.runTimersToTime(args);
+      return expect(promise).resolves.toBe(undefined);
+    });
+  });
 });
