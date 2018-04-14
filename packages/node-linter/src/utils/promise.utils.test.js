@@ -3,7 +3,7 @@ const { sleep } = require('./promise.utils');
 describe('sleep', () => {
   jest.useFakeTimers();
 
-  ['', () => {}, {}, [], false, undefined, null].forEach(args => {
+  ['str', () => {}, {}, [], false, undefined, null].forEach(args => {
     it(`should throw an error because "${args}" is not a number`, () =>
       expect(() => sleep(args)).toThrowErrorMatchingSnapshot());
   });
@@ -14,7 +14,7 @@ describe('sleep', () => {
   });
 
   [10, 100, 1000].forEach(args => {
-    it(`should sleep ${args} ms`, () => {
+    it(`should be able to sleep peacefully in ${args} ms`, () => {
       const promise = sleep(args);
       jest.runTimersToTime(args);
       return expect(promise).resolves.toBe(undefined);
