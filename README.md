@@ -2,13 +2,11 @@
 
 [![Build Status](https://travis-ci.org/hieuvp/node-lint-tools.svg?branch=master)](https://travis-ci.org/hieuvp/node-lint-tools)
 
-By collecting best practices, this project aims to provide **linters** with **zero configuration** but **fully functional**.
-
-*Simple is Better Than Complex.*
+By leveraging simplicity, this project aims to provide a set of linters with *zero configuration*.
 
 ## Installation
 
-1. Choose your framework
+1. Choose your favorite environment
 
 	* Node.js
 
@@ -33,6 +31,8 @@ By collecting best practices, this project aims to provide **linters** with **ze
 	```sh
 	$ npm install --save-dev @hieu.van/react-native-linter
 	```
+
+2. Create `.eslintrc.js` in your root project directory
 
 ## Usage
 

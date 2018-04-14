@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sleep should throw an error because "" is not a number 1`] = `"Expected \\"Number\\", instead got \\": object\\""`;
+
+exports[`sleep should throw an error because "() => {}" is not a number 1`] = `"Expected \\"Number\\", instead got \\"() => {}: function\\""`;
+
+exports[`sleep should throw an error because "[object Object]" is not a number 1`] = `"Expected \\"Number\\", instead got \\"[object Object]: object\\""`;
+
+exports[`sleep should throw an error because "-10" is not a positive number 1`] = `"Millisecond must be a positive number"`;
+
+exports[`sleep should throw an error because "0" is not a positive number 1`] = `"Millisecond must be a positive number"`;
+
+exports[`sleep should throw an error because "NaN" is not a positive number 1`] = `"Millisecond must be a positive number"`;
+
+exports[`sleep should throw an error because "false" is not a number 1`] = `"Expected \\"Number\\", instead got \\"false: boolean\\""`;
+
+exports[`sleep should throw an error because "null" is not a number 1`] = `"Expected \\"Number\\", instead got \\"null: object\\""`;
+
+exports[`sleep should throw an error because "str" is not a number 1`] = `"Expected \\"Number\\", instead got \\"str: string\\""`;
+
+exports[`sleep should throw an error because "undefined" is not a number 1`] = `"Expected \\"Number\\", instead got \\"undefined: undefined\\""`;
