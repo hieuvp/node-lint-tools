@@ -16,7 +16,7 @@ describe('sleep', () => {
   [10, 100, 1000].forEach(args => {
     it(`should be able to sleep peacefully in ${args} ms`, () => {
       const promise = sleep(args);
-      jest.runTimersToTime(args);
+      jest.advanceTimersByTime(args);
       return expect(promise).resolves.toBe(undefined);
     });
   });
