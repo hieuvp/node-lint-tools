@@ -2,37 +2,37 @@
 
 [![Build Status](https://travis-ci.org/hieuvp/node-lint-tools.svg?branch=master)](https://travis-ci.org/hieuvp/node-lint-tools)
 
-By collecting best practices, this project aims to provide **linters** with **zero configuration** but **fully functional**.
-
-*Simple is Better Than Complex.*
+By leveraging simplicity, this project aims to provide a set of linters with *zero configuration*.
 
 ## Installation
 
 1. Choose your favorite environment
 
-* Node.js
+	* Node.js
 
-```sh
-$ npm install --save-dev @hieu.van/node-linter
-```
+	```sh
+	$ npm install --save-dev @hieu.van/node-linter
+	```
 
-* Hapi.js
+	* Hapi.js
 
-```sh
-$ npm install --save-dev @hieu.van/hapi-linter
-```
+	```sh
+	$ npm install --save-dev @hieu.van/hapi-linter
+	```
 
-* React
+	* React
 
-```sh
-$ npm install --save-dev @hieu.van/react-linter
-```
+	```sh
+	$ npm install --save-dev @hieu.van/react-linter
+	```
 
-* React Native
+	* React Native
 
-```sh
-$ npm install --save-dev @hieu.van/react-native-linter
-```
+	```sh
+	$ npm install --save-dev @hieu.van/react-native-linter
+	```
+
+2. Create `.eslintrc.js` in your root project directory
 
 ## Usage
 
