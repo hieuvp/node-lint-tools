@@ -1,6 +1,9 @@
 # JetBrains IDEs
 .idea/
 
+# GitBook build output
+_book/
+
 # Logs
 logs
 *.log
