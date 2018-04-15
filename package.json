@@ -6,7 +6,7 @@
     "node": ">=8.11.1"
   },
   "scripts": {
-    "clean": "rm -rf package-lock.json node_modules lerna-debug.log && lerna run clean",
+    "clean": "rm -rf package-lock.json node_modules lerna-debug.log _book && lerna run clean",
     "postinstall": "lerna bootstrap",
     "lint": "run lint .",
     "lint:ci": "npm run lint -- --ci",
