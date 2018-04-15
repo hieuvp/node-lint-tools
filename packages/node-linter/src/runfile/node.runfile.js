@@ -9,7 +9,7 @@ const { prettier } = require('./prettier.runfile');
 
 /**
  * @param {...string} args
- * @returns {Promise<void>}
+ * @returns {Promise}
  */
 module.exports = function lint(...args) {
   if (args.length === 0) {
