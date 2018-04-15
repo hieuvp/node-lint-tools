@@ -9,12 +9,12 @@ const {
 
 const blacklist = require('./blacklist.runfile');
 
-const extension = ['json'];
-const pattern = `**/${getPatternByExtension(extension)}`;
+const extensions = ['json'];
+const pattern = `**/${getPatternByExtension(extensions)}`;
 
 /**
  * @param {string} args
- * @returns {Array}
+ * @returns {Array<string>}
  */
 const parseJSONLintArgs = args => {
   const paths = [];
