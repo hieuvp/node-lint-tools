@@ -2,7 +2,7 @@
   "name": "@hieu.van/hapi-linter",
   "private": false,
   "version": "1.0.0",
-  "description": "Hapi Linter",
+  "description": "Hapi.js Linter",
   "engines": {
     "node": ">=8.11.1"
   },

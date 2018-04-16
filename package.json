@@ -1,7 +1,7 @@
 {
   "name": "node-lint-tools",
   "private": false,
-  "description": "Node Lint Tools",
+  "description": "Lint Tools",
   "engines": {
     "node": ">=8.11.1"
   },

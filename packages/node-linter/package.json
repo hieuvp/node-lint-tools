@@ -2,7 +2,7 @@
   "name": "@hieu.van/node-linter",
   "private": false,
   "version": "1.0.0",
-  "description": "Node Linter",
+  "description": "Node.js Linter",
   "engines": {
     "node": ">=8.11.1"
   },
