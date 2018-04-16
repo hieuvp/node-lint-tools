@@ -13,11 +13,7 @@ Array [
 
 exports[`parseJSONLintArgs should match snapshot when parsing with "README.md" 1`] = `Array []`;
 
-exports[`parseJSONLintArgs should match snapshot when parsing with "package.json" 1`] = `
-Array [
-  "package.json",
-]
-`;
+exports[`parseJSONLintArgs should match snapshot when parsing with "package.json" 1`] = `Array []`;
 
 exports[`parseJSONLintArgs should match snapshot when parsing with "packages/" 1`] = `
 Array [
@@ -36,11 +32,7 @@ Array [
 ]
 `;
 
-exports[`parseJSONLintArgs should match snapshot when parsing with "packages/hapi-linter/package.json" 1`] = `
-Array [
-  "packages/hapi-linter/package.json",
-]
-`;
+exports[`parseJSONLintArgs should match snapshot when parsing with "packages/hapi-linter/package.json" 1`] = `Array []`;
 
 exports[`parseJSONLintArgs should match snapshot when parsing with "packages/node-linter/" 1`] = `
 Array [

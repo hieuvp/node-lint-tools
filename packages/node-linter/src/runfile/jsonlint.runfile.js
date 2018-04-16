@@ -6,32 +6,39 @@ const { run } = require('runjs');
 const {
   glob: { getPatternByExtension }
 } = require('../utils');
-
 const blacklist = require('./blacklist.runfile');
 
+// The extension list that JSON Lint is interested in
 const extensions = ['json'];
-const pattern = `**/${getPatternByExtension(extensions)}`;
 
 /**
  * @param {string} args
  * @returns {Array<string>}
  */
 const parseJSONLintArgs = args => {
-  const paths = [];
+  if (args === '.') {
+    const pattern = `**/${getPatternByExtension(extensions)}`;
+    return glob.sync(pattern, { ignore: blacklist });
+  }
 
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   const stats = fs.statSync(args);
+
   if (stats.isDirectory()) {
-    paths.push(
-      ...glob.sync(args === '.' ? pattern : `${args}/${pattern}`, { ignore: blacklist })
-    );
-  } else if (stats.isFile() && minimatch(args, pattern) && blacklist.some(pattern => minimatch(args, pattern))) {
-    // TODO: how about blacklist
-    // TODO: then snapshots with package.json will be removed
-    paths.push(args);
+    const pattern = `${args}/**/${getPatternByExtension(extensions)}`;
+    return glob.sync(pattern, { ignore: blacklist });
   }
 
-  return paths;
+  if (stats.isFile()) {
+    return [args]
+      .filter(path => {
+        const pattern = `**/${getPatternByExtension(extensions)}`;
+        return minimatch(path, pattern);
+      })
+      .filter(path => !blacklist.some(pattern => minimatch(path, pattern)));
+  }
+
+  return [];
 };
 
 /**
