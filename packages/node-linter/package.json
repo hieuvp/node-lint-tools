@@ -29,6 +29,7 @@
     "prettier": "^1.12.0"
   },
   "peerDependencies": {
+    "diff": "^3.5.0",
     "glob": "^7.1.2",
     "minimatch": "^3.0.4",
     "runjs": "^4.3.2"
