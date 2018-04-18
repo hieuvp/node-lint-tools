@@ -8,7 +8,7 @@ Object {
   "promise": Object {
     "sleep": [Function],
   },
-  "run": Object {
+  "shell": Object {
     "exec": [Function],
   },
 }
