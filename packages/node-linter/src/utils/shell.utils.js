@@ -25,17 +25,15 @@ const exec = (command, args = {}, opts = {}) => {
     );
   }
 
-  const builder = `${command.replace(/ {2,}/g, ' ')} ${dargs(args).join(' ')}`.trim();
   const async = true;
   const stdio = 'pipe';
-  return run(builder, {
+  return run(`${command.replace(/ {2,}/g, ' ')} ${dargs(args).join(' ')}`.trim(), {
     async,
     stdio
   }).catch(error => {
     if (errorIgnored) {
       return error;
     }
-
     throw error;
   });
 };
