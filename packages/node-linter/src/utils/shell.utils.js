@@ -13,10 +13,6 @@ const exec = (command, args = {}, opts = {}) => {
     throw new TypeError(`Expected "String", instead got "${command}: ${typeof command}"`);
   }
 
-  if (command.length === 0) {
-    throw new Error('Command must not be empty');
-  }
-
   const { errorIgnored = false } = opts;
 
   if (typeof errorIgnored !== 'boolean') {
