@@ -13,6 +13,8 @@ const exec = (command, args = {}, opts = {}) => {
     throw new TypeError(`Expected "String", instead got "${command}: ${typeof command}"`);
   }
 
+  // TODO: throw when command.trim().length === 0
+
   const { errorIgnored = false } = opts;
 
   if (typeof errorIgnored !== 'boolean') {
