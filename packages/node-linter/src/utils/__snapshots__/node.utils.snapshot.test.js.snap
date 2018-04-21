@@ -8,5 +8,8 @@ Object {
   "promise": Object {
     "sleep": [Function],
   },
+  "shell": Object {
+    "exec": [Function],
+  },
 }
 `;
