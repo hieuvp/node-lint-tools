@@ -1,9 +1,25 @@
 const { exec } = require('./shell.utils');
 
 describe('exec', () => {
-  // args { hello: true }
+  const validatedArgs = [[], [], []];
 
-  it('should happy', () => exec('ls -lia').then(console.log));
+  // ///////////////////////////////////////////////////
+
+  // args { hello: true }
+  // alias tests
+  // how to run test cmd? "ls -lia"? -> aliases:
+  //    a: true,
+  //   b: true,
+  //   c: true,
+  // tree -L 2
+
+  // when args is a directory or something that contains double/more spaces
+
+  // it('should happy', () =>
+  //   exec('ls', { list: true }, { aliases: { list: 'l' } }).then(console.log));
+
+  // it('should happy', () =>
+  //   exec('tree', { level: 2 }, { aliases: { level: 'L' } }).then(console.log));
 
   it('should accept command as a string type', () => {});
 
