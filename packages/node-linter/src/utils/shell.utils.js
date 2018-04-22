@@ -5,6 +5,7 @@ const { run } = require('runjs');
  * @param {string} command
  * @param {Object} args - minimist argument object
  * @param {Object} opts
+ * @param {Object} opts.aliases - map keys in "args" to an aliased name
  * @param {boolean} opts.errorIgnored
  * @returns {Promise}
  */
@@ -19,18 +20,21 @@ const exec = (command, args = {}, opts = {}) => {
     throw new Error(`Command "${command}" cannot be empty`);
   }
 
+  const { aliases, errorIgnored = false } = opts;
+
   /**
    * Reverse minimist
    * Convert an object of options into an array of command-line arguments
    *
+   * Matching aliases are converted to arguments with a single dash (-)
+   * in front of the aliased key and the value in a separate array item
+   *
    * @type {Array}
    */
-  const enhancedArgs = dargs(args);
+  const enhancedArgs = dargs(args, { aliases });
   if (enhancedArgs.length > 0) {
-    enhancedCommand += enhancedArgs.join(' ');
+    enhancedCommand += ` ${enhancedArgs.join(' ')}`;
   }
-
-  const { errorIgnored = false } = opts;
 
   if (typeof errorIgnored !== 'boolean') {
     throw new TypeError(
