@@ -13,11 +13,18 @@ const exec = (command, args = {}, opts = {}) => {
     throw new TypeError(`Expected "String", instead got "${command}: ${typeof command}"`);
   }
 
+  // Remove unnecessary spaces
   let enhancedCommand = command.trim().replace(/ {2,}/g, ' ');
   if (enhancedCommand.length === 0) {
     throw new Error(`Command "${command}" cannot be empty`);
   }
 
+  /**
+   * Reverse minimist
+   * Convert an object of options into an array of command-line arguments
+   *
+   * @type {Array}
+   */
   const enhancedArgs = dargs(args);
   if (enhancedArgs.length > 0) {
     enhancedCommand += enhancedArgs.join(' ');
@@ -31,8 +38,13 @@ const exec = (command, args = {}, opts = {}) => {
     );
   }
 
+  // Run command asynchronously, false by default
   const async = true;
+
+  // Outputs are returned but not forwarded to the parent process
+  // thus not printed out to the terminal
   const stdio = 'pipe';
+
   return run(enhancedCommand, { async, stdio }).catch(error => {
     if (errorIgnored) {
       return error;

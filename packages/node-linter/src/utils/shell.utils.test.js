@@ -1,26 +1,43 @@
 const { exec } = require('./shell.utils');
 
 describe('exec', () => {
+  it('should happy', () => exec('ls -lia').then(console.log));
+
   it('should accept command as a string type', () => {});
 
-  it('should throw in these cases', () => {
+  it('should remove leading and trailing spaces', () => {});
+
+  it('should remove all double, or more spaces', () => {});
+
+  it('should throw in these cases, empty command', () => {
     // TODO: command = ""
     // TODO: command = " "
     // TODO: command = "     "
   });
 
-  it('should accept opts ignore error as a boolean', () => {});
+  // TODO: is there any chance enhancedArgs is not an array?
+  // TODO: args = {} by default -> what is the result
+  // TODO: if length === 0 -> command =?
+  // TODO: if length > 0 -> command =?
+  // TODO: case: 1, case two, case more than two
+
+  it('should accept opts ignore error as a boolean', () => {
+    // TODO: throws
+  });
 
   it('should not ignore error by default', () => {});
 
-  // TODO: is there any chance enhancedArgs is not an array?
-
   it('should ignore error', () => {});
 
-  // ${command.replace(/ {2,}/g, ' ')} ${dargs(args).join(' ')}`.trim()
-  // TODO: no args cases
+  // TODO: Returns
+  // TODO: Promise, then, catch
+  // TODO: resolves with output
+  // TODO: reject with output
+  // TODO: not auto print out to terminal
 
-  it('should remove all double, or more spaces', () => {});
+  // TODO: {run} => runjs with mock and without mock
+
+  // TODO: no args cases
 
   it('should trim cleanly when no args is send', () => {
     // TODO: e.g. no trailing spaces
