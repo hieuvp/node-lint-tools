@@ -13,7 +13,15 @@ const exec = (command, args = {}, opts = {}) => {
     throw new TypeError(`Expected "String", instead got "${command}: ${typeof command}"`);
   }
 
-  // TODO: throw when command.trim().length === 0
+  let enhancedCommand = command.trim().replace(/ {2,}/g, ' ');
+  if (enhancedCommand.length === 0) {
+    throw new Error(`Command "${command}" cannot be empty`);
+  }
+
+  const enhancedArgs = dargs(args);
+  if (enhancedArgs.length > 0) {
+    enhancedCommand += enhancedArgs.join(' ');
+  }
 
   const { errorIgnored = false } = opts;
 
@@ -25,10 +33,7 @@ const exec = (command, args = {}, opts = {}) => {
 
   const async = true;
   const stdio = 'pipe';
-  return run(`${command.replace(/ {2,}/g, ' ')} ${dargs(args).join(' ')}`.trim(), {
-    async,
-    stdio
-  }).catch(error => {
+  return run(enhancedCommand, { async, stdio }).catch(error => {
     if (errorIgnored) {
       return error;
     }
