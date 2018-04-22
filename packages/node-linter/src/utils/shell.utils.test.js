@@ -7,10 +7,12 @@ describe('exec', () => {
 
   // args { hello: true }
   // alias tests
+  // https://www.rapidtables.com/code/linux/ls.html
   // how to run test cmd? "ls -lia"? -> aliases:
   //    a: true,
   //   b: true,
   //   c: true,
+  // https://www.computerhope.com/unix/tree.htm
   // tree -L 2
 
   // when args is a directory or something that contains double/more spaces
