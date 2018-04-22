@@ -1,6 +1,8 @@
 const { exec } = require('./shell.utils');
 
 describe('exec', () => {
+  // args { hello: true }
+
   it('should happy', () => exec('ls -lia').then(console.log));
 
   it('should accept command as a string type', () => {});
