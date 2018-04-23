@@ -18,26 +18,23 @@ describe('exec', () => {
   describe('options', () => {
     describe('errorIgnored', () => {
       const command = 'non-existent-command';
-      const message = 'Command failed: non-existent-command with exit code 127';
 
       [[], null, 1].forEach(errorIgnored => {
         it(`should throw an error because "${JSON.stringify(
           errorIgnored
-        )}" is not a boolean`, () => {
+        )}" is not a boolean`, () =>
           expect(() =>
             exec(command, undefined, { errorIgnored })
-          ).toThrowErrorMatchingSnapshot();
-        });
+          ).toThrowErrorMatchingSnapshot());
       });
 
       it('should be able to reject an error by default', () =>
-        expect(exec(command)).rejects.toThrow(message));
+        expect(exec(command)).rejects.toThrowErrorMatchingSnapshot());
 
       it('should swallow the error when passing a true value', () =>
-        exec(command, undefined, { errorIgnored: true }).then(error => {
-          expect(error).toBeInstanceOf(Error);
-          expect(error.message).toEqual(message);
-        }));
+        expect(exec(command, undefined, { errorIgnored: true })).resolves.toBeInstanceOf(
+          Error
+        ));
     });
   });
 });
