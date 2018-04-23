@@ -5,8 +5,8 @@ const { run } = require('runjs');
  * @param {string} command
  * @param {Object} args - minimist argument object
  * @param {Object} opts
- * @param {Object} opts.aliases - map keys in "args" to an aliased name
- * @param {boolean} opts.errorIgnored
+ * @param {Object} [opts.aliases={}] - map keys in "args" to an aliased name
+ * @param {boolean} [opts.errorIgnored=false]
  * @returns {Promise}
  */
 const exec = (command, args = {}, opts = {}) => {
@@ -20,7 +20,11 @@ const exec = (command, args = {}, opts = {}) => {
     throw new Error(`Command "${command}" cannot be empty`);
   }
 
-  const { aliases, errorIgnored = false } = opts;
+  const { aliases = {}, errorIgnored = false } = opts;
+
+  if (typeof aliases !== 'object' || Array.isArray(aliases)) {
+    throw new TypeError(`Expected "Object", instead got "${aliases}: ${typeof aliases}"`);
+  }
 
   /**
    * Reverse minimist
