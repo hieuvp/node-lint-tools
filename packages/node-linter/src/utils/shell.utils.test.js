@@ -25,6 +25,8 @@ describe('exec', () => {
     const command = 'non-existent-command';
     const message = 'Command failed: non-existent-command with exit code 127';
 
+    // TODO: errorIgnored validation
+
     it('should not ignore error by default', () =>
       expect(exec(command)).rejects.toThrow(message));
 
