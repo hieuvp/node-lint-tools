@@ -1,11 +1,39 @@
 const { exec } = require('./shell.utils');
 
 describe('exec', () => {
-  describe('command validation', () => {});
+  describe('command validation', () => {
+    [[], true, undefined, null, 1].forEach(command => {
+      it(`should throw because command "${JSON.stringify(command)}" is not a string`, () => {
+        expect(() => exec(command)).toThrowErrorMatchingSnapshot();
+      });
+    });
+
+    ['', ' ', '     '].forEach(command => {
+      it(`should throw because command "${command}" is an empty string`, () => {
+        expect(() => exec(command)).toThrowErrorMatchingSnapshot();
+      });
+    });
+  });
 
   describe('command enhancement', () => {});
 
-  describe('command alias', () => {});
+  describe('option aliases', () => {
+    // TODO: aliases validation
+  });
+
+  describe('option errorIgnored', () => {
+    const command = 'non-existent-command';
+    const message = 'Command failed: non-existent-command with exit code 127';
+
+    it('should not ignore error by default', () =>
+      expect(exec(command)).rejects.toThrow(message));
+
+    it('should swallow the error when errorIgnored equals true', () =>
+      exec(command, undefined, { errorIgnored: true }).then(error => {
+        expect(error).toBeInstanceOf(Error);
+        expect(error.message).toEqual(message);
+      }));
+  });
 
   // ///////////////////////////////////////////////////
 
@@ -30,17 +58,9 @@ describe('exec', () => {
   // it('should happy', () =>
   //   exec('tree', { level: 2 }, { aliases: { level: 'L' } }).then(console.log));
 
-  it('should accept command as a string type', () => {});
-
   it('should remove leading and trailing spaces', () => {});
 
   it('should remove all double, or more spaces', () => {});
-
-  it('should throw in these cases, empty command', () => {
-    // TODO: command = ""
-    // TODO: command = " "
-    // TODO: command = "     "
-  });
 
   // TODO: is there any chance enhancedArgs is not an array?
   // TODO: args = {} by default -> what is the result

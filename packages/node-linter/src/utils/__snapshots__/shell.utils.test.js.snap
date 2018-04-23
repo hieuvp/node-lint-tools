@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exec command validation should throw because command "     " is an empty string 1`] = `"Command \\"     \\" cannot be empty"`;
+
+exports[`exec command validation should throw because command " " is an empty string 1`] = `"Command \\" \\" cannot be empty"`;
+
+exports[`exec command validation should throw because command "" is an empty string 1`] = `"Command \\"\\" cannot be empty"`;
+
+exports[`exec command validation should throw because command "[]" is not a string 1`] = `"Expected \\"String\\", instead got \\": object\\""`;
+
+exports[`exec command validation should throw because command "1" is not a string 1`] = `"Expected \\"String\\", instead got \\"1: number\\""`;
+
+exports[`exec command validation should throw because command "null" is not a string 1`] = `"Expected \\"String\\", instead got \\"null: object\\""`;
+
+exports[`exec command validation should throw because command "true" is not a string 1`] = `"Expected \\"String\\", instead got \\"true: boolean\\""`;
+
+exports[`exec command validation should throw because command "undefined" is not a string 1`] = `"Expected \\"String\\", instead got \\"undefined: undefined\\""`;
