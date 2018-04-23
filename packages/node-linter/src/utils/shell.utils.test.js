@@ -1,7 +1,11 @@
 const { exec } = require('./shell.utils');
 
 describe('exec', () => {
-  const validatedArgs = [[], [], []];
+  describe('command validation', () => {});
+
+  describe('command enhancement', () => {});
+
+  describe('command alias', () => {});
 
   // ///////////////////////////////////////////////////
 
@@ -16,6 +20,9 @@ describe('exec', () => {
   // tree -L 2
 
   // when args is a directory or something that contains double/more spaces
+
+  // describe('args validation', () => {});
+  // const validatedArgs = [[], [], []];
 
   // it('should happy', () =>
   //   exec('ls', { list: true }, { aliases: { list: 'l' } }).then(console.log));
