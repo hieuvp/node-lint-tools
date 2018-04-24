@@ -35,10 +35,7 @@ const validatedArgs = [
 
 describe('args validation', () => {
   beforeEach(() => {
-    options.mockImplementation(() => ({}));
-    eslint.mockImplementation(() => Promise.resolve());
-    jsonlint.mockImplementation(() => Promise.resolve());
-    prettier.mockImplementation(() => Promise.resolve());
+    options.mockReturnValue({});
   });
 
   afterEach(() => {
@@ -74,10 +71,7 @@ describe('args validation', () => {
 
 describe('linters invocation', () => {
   beforeEach(() => {
-    options.mockImplementation(() => ({}));
-    eslint.mockImplementation(() => Promise.resolve());
-    jsonlint.mockImplementation(() => Promise.resolve());
-    prettier.mockImplementation(() => Promise.resolve());
+    options.mockReturnValue({});
   });
 
   afterEach(() => {
@@ -115,7 +109,7 @@ describe('linters invocation', () => {
       const opts = { ci: undefined, fix: true };
       const transformedOpts = { ci: false, fix: true };
 
-      options.mockImplementation(() => opts);
+      options.mockReturnValue(opts);
 
       await lint(args);
 
