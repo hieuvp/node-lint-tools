@@ -22,9 +22,7 @@ describe('exec', () => {
       const command = 'non-existent-command';
 
       [[], null, 1].forEach(errorIgnored => {
-        it(`should throw an error because "${JSON.stringify(
-          errorIgnored
-        )}" is not a boolean`, () => {
+        it(`should throw because "${JSON.stringify(errorIgnored)}" is not a boolean`, () => {
           const fn = () => exec(command, undefined, { errorIgnored });
           expect(fn).toThrowErrorMatchingSnapshot();
         });

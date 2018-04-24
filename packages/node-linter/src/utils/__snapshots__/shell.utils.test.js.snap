@@ -18,8 +18,8 @@ exports[`exec command should throw an error because "undefined" is not a string 
 
 exports[`exec options errorIgnored should be able to reject an error by default 1`] = `"Command failed: non-existent-command with exit code 127"`;
 
-exports[`exec options errorIgnored should throw an error because "[]" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\": object\\""`;
+exports[`exec options errorIgnored should throw because "[]" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\": object\\""`;
 
-exports[`exec options errorIgnored should throw an error because "1" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\"1: number\\""`;
+exports[`exec options errorIgnored should throw because "1" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\"1: number\\""`;
 
-exports[`exec options errorIgnored should throw an error because "null" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\"null: object\\""`;
+exports[`exec options errorIgnored should throw because "null" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\"null: object\\""`;
