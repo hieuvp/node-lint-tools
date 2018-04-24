@@ -18,6 +18,16 @@ describe('exec', () => {
   });
 
   describe('options', () => {
+    describe('aliases', () => {
+      const command = 'ls';
+      [[], true, null, 1].forEach(aliases => {
+        it(`should throw because "${JSON.stringify(aliases)}" is not an object`, () => {
+          const fn = () => exec(command, undefined, { aliases });
+          expect(fn).toThrowErrorMatchingSnapshot();
+        });
+      });
+    });
+
     describe('errorIgnored', () => {
       const command = 'non-existent-command';
 

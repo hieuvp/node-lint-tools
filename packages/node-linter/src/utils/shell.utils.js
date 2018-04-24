@@ -22,7 +22,7 @@ const exec = (command, args = {}, opts = {}) => {
 
   const { aliases = {}, errorIgnored = false } = opts;
 
-  if (typeof aliases !== 'object' || Array.isArray(aliases)) {
+  if (typeof aliases !== 'object' || aliases === null || Array.isArray(aliases)) {
     throw new TypeError(`Expected "Object", instead got "${aliases}: ${typeof aliases}"`);
   }
 
