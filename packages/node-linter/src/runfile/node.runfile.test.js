@@ -36,9 +36,6 @@ const validatedArgs = [
 describe('args validation', () => {
   beforeEach(() => {
     options.mockReturnValue({});
-    eslint.mockResolvedValue(undefined);
-    jsonlint.mockResolvedValue(undefined);
-    prettier.mockResolvedValue(undefined);
   });
 
   afterEach(() => {
@@ -75,9 +72,6 @@ describe('args validation', () => {
 describe('linters invocation', () => {
   beforeEach(() => {
     options.mockReturnValue({});
-    eslint.mockResolvedValue(undefined);
-    jsonlint.mockResolvedValue(undefined);
-    prettier.mockResolvedValue(undefined);
   });
 
   afterEach(() => {
@@ -86,9 +80,9 @@ describe('linters invocation', () => {
 
   validatedArgs.forEach(args => {
     it(`should run all linters in order when giving ${JSON.stringify(args)}`, async () => {
-      eslint.mockResolvedValue(sleep(2));
-      jsonlint.mockResolvedValue(sleep(2));
-      prettier.mockResolvedValue(sleep(2));
+      eslint.mockImplementation(() => sleep(2));
+      jsonlint.mockImplementation(() => sleep(2));
+      prettier.mockImplementation(() => sleep(2));
 
       await lint(...args);
 
