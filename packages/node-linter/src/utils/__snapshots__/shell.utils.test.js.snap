@@ -16,8 +16,6 @@ exports[`exec command should throw an error because "true" is not a string 1`] =
 
 exports[`exec command should throw an error because "undefined" is not a string 1`] = `"Expected \\"String\\", instead got \\"undefined: undefined\\""`;
 
-exports[`exec options aliases should throw because ""string"" is not an object 1`] = `"Expected \\"Object\\", instead got \\"string: string\\""`;
-
 exports[`exec options aliases should throw because "[]" is not an object 1`] = `"Expected \\"Object\\", instead got \\": object\\""`;
 
 exports[`exec options aliases should throw because "1" is not an object 1`] = `"Expected \\"Object\\", instead got \\"1: number\\""`;

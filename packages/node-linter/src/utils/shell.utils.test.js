@@ -1,6 +1,13 @@
+const { run } = require('runjs');
 const { exec } = require('./shell.utils');
 
+jest.mock('runjs', () => ({ run: jest.fn() }));
+
 describe('exec', () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   describe('command', () => {
     [[], true, undefined, null, 1].forEach(command => {
       it(`should throw an error because "${JSON.stringify(command)}" is not a string`, () => {
@@ -19,17 +26,33 @@ describe('exec', () => {
 
   describe('options', () => {
     describe('aliases', () => {
-      const command = 'ls';
+      const command = 'tree';
+
+      beforeEach(() => {
+        run.mockResolvedValue(undefined);
+      });
+
       [[], true, null, 1].forEach(aliases => {
         it(`should throw because "${JSON.stringify(aliases)}" is not an object`, () => {
           const fn = () => exec(command, undefined, { aliases });
           expect(fn).toThrowErrorMatchingSnapshot();
         });
       });
+
+      it('should map args to aliases', async () => {
+        const args = { level: 2 };
+        const aliases = { level: 'L' };
+        await exec(command, args, { aliases });
+        expect(run.mock.calls[0][0]).toEqual('tree -L 2');
+      });
     });
 
     describe('errorIgnored', () => {
       const command = 'non-existent-command';
+
+      beforeEach(() => {
+        run.mockImplementation(require.requireActual('runjs').run);
+      });
 
       [[], null, 1].forEach(errorIgnored => {
         it(`should throw because "${JSON.stringify(errorIgnored)}" is not a boolean`, () => {
