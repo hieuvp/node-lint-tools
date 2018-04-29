@@ -29,7 +29,7 @@ describe('exec', () => {
       const command = 'tree';
 
       beforeEach(() => {
-        run.mockResolvedValue(undefined);
+        run.mockResolvedValue();
       });
 
       [[], true, null, 1].forEach(aliases => {
