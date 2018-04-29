@@ -40,11 +40,26 @@ describe('exec', () => {
         });
       });
 
-      it('should map args to aliases', async () => {
-        const args = { level: 2 };
+      it('should be able to map a single alias', async () => {
+        const args = { level: 1 };
         const aliases = { level: 'L' };
+
+        await exec(command, args);
+        expect(run.mock.calls[0][0]).toEqual('tree --level=1');
+
         await exec(command, args, { aliases });
-        expect(run.mock.calls[0][0]).toEqual('tree -L 2');
+        expect(run.mock.calls[1][0]).toEqual('tree -L 1');
+      });
+
+      it('should be able to map multiple aliases', async () => {
+        const args = { level: 1, user: true, group: true, size: true };
+        const aliases = { level: 'L', user: 'u', group: 'g', size: 's' };
+
+        await exec(command, args);
+        expect(run.mock.calls[0][0]).toEqual('tree --level=1 --user --group --size');
+
+        await exec(command, args, { aliases });
+        expect(run.mock.calls[1][0]).toEqual('tree -L 1 -u -g -s');
       });
     });
 
