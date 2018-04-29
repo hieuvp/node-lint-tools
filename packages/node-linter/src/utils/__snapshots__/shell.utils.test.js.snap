@@ -16,18 +16,18 @@ exports[`exec command should throw an error because "true" is not a string 1`] =
 
 exports[`exec command should throw an error because "undefined" is not a string 1`] = `"Expected \\"String\\", instead got \\"undefined: undefined\\""`;
 
-exports[`exec options aliases should throw because "[]" is not an object 1`] = `"Expected \\"Object\\", instead got \\": object\\""`;
+exports[`exec options aliases should throw an error because "[]" is not an object 1`] = `"Expected \\"Object\\", instead got \\": object\\""`;
 
-exports[`exec options aliases should throw because "1" is not an object 1`] = `"Expected \\"Object\\", instead got \\"1: number\\""`;
+exports[`exec options aliases should throw an error because "1" is not an object 1`] = `"Expected \\"Object\\", instead got \\"1: number\\""`;
 
-exports[`exec options aliases should throw because "null" is not an object 1`] = `"Expected \\"Object\\", instead got \\"null: object\\""`;
+exports[`exec options aliases should throw an error because "null" is not an object 1`] = `"Expected \\"Object\\", instead got \\"null: object\\""`;
 
-exports[`exec options aliases should throw because "true" is not an object 1`] = `"Expected \\"Object\\", instead got \\"true: boolean\\""`;
+exports[`exec options aliases should throw an error because "true" is not an object 1`] = `"Expected \\"Object\\", instead got \\"true: boolean\\""`;
 
 exports[`exec options errorIgnored should be able to reject an error by default 1`] = `"Command failed: non-existent-command with exit code 127"`;
 
-exports[`exec options errorIgnored should throw because "[]" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\": object\\""`;
+exports[`exec options errorIgnored should throw an error because "[]" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\": object\\""`;
 
-exports[`exec options errorIgnored should throw because "1" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\"1: number\\""`;
+exports[`exec options errorIgnored should throw an error because "1" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\"1: number\\""`;
 
-exports[`exec options errorIgnored should throw because "null" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\"null: object\\""`;
+exports[`exec options errorIgnored should throw an error because "null" is not a boolean 1`] = `"Expected \\"Boolean\\", instead got \\"null: object\\""`;

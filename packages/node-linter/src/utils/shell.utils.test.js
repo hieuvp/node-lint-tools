@@ -33,7 +33,8 @@ describe('exec', () => {
       });
 
       [[], true, null, 1].forEach(aliases => {
-        it(`should throw because "${JSON.stringify(aliases)}" is not an object`, () => {
+        // prettier-ignore
+        it(`should throw an error because "${JSON.stringify(aliases)}" is not an object`, () => {
           const fn = () => exec(command, undefined, { aliases });
           expect(fn).toThrowErrorMatchingSnapshot();
         });
@@ -55,7 +56,8 @@ describe('exec', () => {
       });
 
       [[], null, 1].forEach(errorIgnored => {
-        it(`should throw because "${JSON.stringify(errorIgnored)}" is not a boolean`, () => {
+        // prettier-ignore
+        it(`should throw an error because "${JSON.stringify(errorIgnored)}" is not a boolean`, () => {
           const fn = () => exec(command, undefined, { errorIgnored });
           expect(fn).toThrowErrorMatchingSnapshot();
         });
