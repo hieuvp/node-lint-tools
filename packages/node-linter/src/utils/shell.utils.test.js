@@ -9,6 +9,10 @@ describe('exec', () => {
   });
 
   describe('command', () => {
+    beforeEach(() => {
+      run.mockResolvedValue();
+    });
+
     [[], true, undefined, null, 1].forEach(command => {
       it(`should throw an error because "${JSON.stringify(command)}" is not a string`, () => {
         const fn = () => exec(command);
@@ -21,6 +25,24 @@ describe('exec', () => {
         const fn = () => exec(command);
         expect(fn).toThrowErrorMatchingSnapshot();
       });
+    });
+
+    it('should recompose a concise command without leading spaces', async () => {
+      const command = '  ls -lia';
+      await exec(command);
+      expect(run.mock.calls[0][0]).toEqual('ls -lia');
+    });
+
+    it('should recompose a concise command without trailing spaces', async () => {
+      const command = 'ls -lia   ';
+      await exec(command);
+      expect(run.mock.calls[0][0]).toEqual('ls -lia');
+    });
+
+    it('should recompose a concise command without extra spaces', async () => {
+      const command = 'ls     -l   -i    -a';
+      await exec(command);
+      expect(run.mock.calls[0][0]).toEqual('ls -l -i -a');
     });
   });
 
