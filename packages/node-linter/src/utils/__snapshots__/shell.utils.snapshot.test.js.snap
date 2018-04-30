@@ -1,46 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`decorate should match snapshot 1`] = `
-"
-=======
- $ ls
-=======
-"
-`;
-
-exports[`decorate should match snapshot 2`] = `
-"
-============
- $ ls -lia
-============
-"
-`;
-
-exports[`decorate should match snapshot 3`] = `
-"
-===============
- $ which atom
-===============
-"
-`;
-
-exports[`decorate should match snapshot 4`] = `
-"
-=======================
- $ brew cask outdated
-=======================
-"
-`;
-
-exports[`decorate should match snapshot 5`] = `
-"
-==============================================
- $ docker info | grep -E \\"Containers|Images\\"
-==============================================
-"
-`;
-
-exports[`decorate should match snapshot 6`] = `
+exports[`decorate should match snapshot with command: "/usr/local/bin/npm -g outdated --parseable --depth=0" 1`] = `
 "
 =========================================================
  $ /usr/local/bin/npm -g outdated --parseable --depth=0
@@ -48,7 +8,31 @@ exports[`decorate should match snapshot 6`] = `
 "
 `;
 
-exports[`decorate should match snapshot 7`] = `
+exports[`decorate should match snapshot with command: "brew cask outdated" 1`] = `
+"
+=======================
+ $ brew cask outdated
+=======================
+"
+`;
+
+exports[`decorate should match snapshot with command: "cd /Volumes/Data/Workspace/Farmers/logtan-api && git branch placeholder && git checkout placeholder" 1`] = `
+"
+========================================================================================================
+ $ cd /Volumes/Data/Workspace/Farmers/logtan-api && git branch placeholder && git checkout placeholder
+========================================================================================================
+"
+`;
+
+exports[`decorate should match snapshot with command: "docker info | grep -E "Containers|Images"" 1`] = `
+"
+==============================================
+ $ docker info | grep -E \\"Containers|Images\\"
+==============================================
+"
+`;
+
+exports[`decorate should match snapshot with command: "ls "/Users/hieuvp/Library/Preferences" | grep "^IntelliJIdea"" 1`] = `
 "
 ==================================================================
  $ ls \\"/Users/hieuvp/Library/Preferences\\" | grep \\"^IntelliJIdea\\"
@@ -56,7 +40,23 @@ exports[`decorate should match snapshot 7`] = `
 "
 `;
 
-exports[`decorate should match snapshot 8`] = `
+exports[`decorate should match snapshot with command: "ls -lia" 1`] = `
+"
+============
+ $ ls -lia
+============
+"
+`;
+
+exports[`decorate should match snapshot with command: "ls" 1`] = `
+"
+=======
+ $ ls
+=======
+"
+`;
+
+exports[`decorate should match snapshot with command: "tree /Volumes/Data/Workspace -L 2 > "/Volumes/Data/Dropbox/Backup/Workspace.txt"" 1`] = `
 "
 =====================================================================================
  $ tree /Volumes/Data/Workspace -L 2 > \\"/Volumes/Data/Dropbox/Backup/Workspace.txt\\"
@@ -64,10 +64,10 @@ exports[`decorate should match snapshot 8`] = `
 "
 `;
 
-exports[`decorate should match snapshot 9`] = `
+exports[`decorate should match snapshot with command: "which atom" 1`] = `
 "
-========================================================================================================
- $ cd /Volumes/Data/Workspace/Farmers/logtan-api && git branch placeholder && git checkout placeholder
-========================================================================================================
+===============
+ $ which atom
+===============
 "
 `;

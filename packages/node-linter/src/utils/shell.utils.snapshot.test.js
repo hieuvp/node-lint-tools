@@ -12,7 +12,7 @@ describe('decorate', () => {
     'tree /Volumes/Data/Workspace -L 2 > "/Volumes/Data/Dropbox/Backup/Workspace.txt"',
     'cd /Volumes/Data/Workspace/Farmers/logtan-api && git branch placeholder && git checkout placeholder'
   ].forEach(command => {
-    it(`should match snapshot`, () => {
+    it(`should match snapshot with command: "${command}"`, () => {
       expect(decorate(command)).toMatchSnapshot();
     });
   });
