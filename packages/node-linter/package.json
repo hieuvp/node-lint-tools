@@ -29,6 +29,7 @@
     "prettier": "^1.12.1"
   },
   "peerDependencies": {
+    "chalk": "^2.4.1",
     "dargs": "^5.1.0",
     "glob": "^7.1.2",
     "minimatch": "^3.0.4",
