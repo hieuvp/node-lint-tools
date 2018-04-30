@@ -61,15 +61,15 @@ const exec = (command, args = {}, opts = {}) => {
     throw new TypeError(`Expected "Boolean", instead got "${titled}: ${typeof titled}"`);
   }
 
-  // Create a custom logger to be used in "run"
-  const title = message => {
-    if (titled) {
-      const enhancedMessage = chalk.bold(decorate(message));
-      // eslint-disable-next-line no-console
-      console.log(enhancedMessage);
+  // Create a custom logger to be used for "run"
+  const logger = {
+    title: message => {
+      if (titled) {
+        // eslint-disable-next-line no-console
+        console.log(chalk.bold(decorate(message)));
+      }
     }
   };
-  const logger = { title };
 
   if (typeof errorIgnored !== 'boolean') {
     throw new TypeError(
