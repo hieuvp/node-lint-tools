@@ -1,5 +1,5 @@
-const chalk = require('chalk');
 const dargs = require('dargs');
+const { bold } = require('chalk');
 const { run } = require('runjs');
 
 /**
@@ -66,7 +66,7 @@ const exec = (command, args = {}, opts = {}) => {
     title: message => {
       if (titled) {
         // eslint-disable-next-line no-console
-        console.log(chalk.bold(decorate(message)));
+        console.log(bold(decorate(message)));
       }
     }
   };
