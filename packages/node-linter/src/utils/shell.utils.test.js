@@ -94,6 +94,17 @@ describe('exec', () => {
       });
     });
 
+    describe('titled', () => {
+      const command = 'ls';
+
+      [[], null, 1].forEach(titled => {
+        it(`should throw an error because "${JSON.stringify(titled)}" is not a boolean`, () => {
+          const fn = () => exec(command, undefined, { titled });
+          expect(fn).toThrowErrorMatchingSnapshot();
+        });
+      });
+    });
+
     describe('errorIgnored', () => {
       const command = 'non-existent-command';
 
