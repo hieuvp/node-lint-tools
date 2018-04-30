@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`decorate should match snapshot with command: "/usr/local/bin/npm -g outdated --parseable --depth=0" 1`] = `
+exports[`decorate should match snapshot with command "/usr/local/bin/npm -g outdated --parseable --depth=0" 1`] = `
 "
 =========================================================
  $ /usr/local/bin/npm -g outdated --parseable --depth=0
@@ -8,7 +8,7 @@ exports[`decorate should match snapshot with command: "/usr/local/bin/npm -g out
 "
 `;
 
-exports[`decorate should match snapshot with command: "brew cask outdated" 1`] = `
+exports[`decorate should match snapshot with command "brew cask outdated" 1`] = `
 "
 =======================
  $ brew cask outdated
@@ -16,7 +16,7 @@ exports[`decorate should match snapshot with command: "brew cask outdated" 1`] =
 "
 `;
 
-exports[`decorate should match snapshot with command: "cd /Volumes/Data/Workspace/Farmers/logtan-api && git branch placeholder && git checkout placeholder" 1`] = `
+exports[`decorate should match snapshot with command "cd /Volumes/Data/Workspace/Farmers/logtan-api && git branch placeholder && git checkout placeholder" 1`] = `
 "
 ========================================================================================================
  $ cd /Volumes/Data/Workspace/Farmers/logtan-api && git branch placeholder && git checkout placeholder
@@ -24,7 +24,7 @@ exports[`decorate should match snapshot with command: "cd /Volumes/Data/Workspac
 "
 `;
 
-exports[`decorate should match snapshot with command: "docker info | grep -E "Containers|Images"" 1`] = `
+exports[`decorate should match snapshot with command "docker info | grep -E "Containers|Images"" 1`] = `
 "
 ==============================================
  $ docker info | grep -E \\"Containers|Images\\"
@@ -32,7 +32,7 @@ exports[`decorate should match snapshot with command: "docker info | grep -E "Co
 "
 `;
 
-exports[`decorate should match snapshot with command: "ls "/Users/hieuvp/Library/Preferences" | grep "^IntelliJIdea"" 1`] = `
+exports[`decorate should match snapshot with command "ls "/Users/hieuvp/Library/Preferences" | grep "^IntelliJIdea"" 1`] = `
 "
 ==================================================================
  $ ls \\"/Users/hieuvp/Library/Preferences\\" | grep \\"^IntelliJIdea\\"
@@ -40,7 +40,7 @@ exports[`decorate should match snapshot with command: "ls "/Users/hieuvp/Library
 "
 `;
 
-exports[`decorate should match snapshot with command: "ls -lia" 1`] = `
+exports[`decorate should match snapshot with command "ls -lia" 1`] = `
 "
 ============
  $ ls -lia
@@ -48,7 +48,7 @@ exports[`decorate should match snapshot with command: "ls -lia" 1`] = `
 "
 `;
 
-exports[`decorate should match snapshot with command: "ls" 1`] = `
+exports[`decorate should match snapshot with command "ls" 1`] = `
 "
 =======
  $ ls
@@ -56,7 +56,7 @@ exports[`decorate should match snapshot with command: "ls" 1`] = `
 "
 `;
 
-exports[`decorate should match snapshot with command: "tree /Volumes/Data/Workspace -L 2 > "/Volumes/Data/Dropbox/Backup/Workspace.txt"" 1`] = `
+exports[`decorate should match snapshot with command "tree /Volumes/Data/Workspace -L 2 > "/Volumes/Data/Dropbox/Backup/Workspace.txt"" 1`] = `
 "
 =====================================================================================
  $ tree /Volumes/Data/Workspace -L 2 > \\"/Volumes/Data/Dropbox/Backup/Workspace.txt\\"
@@ -64,7 +64,7 @@ exports[`decorate should match snapshot with command: "tree /Volumes/Data/Worksp
 "
 `;
 
-exports[`decorate should match snapshot with command: "which atom" 1`] = `
+exports[`decorate should match snapshot with command "which atom" 1`] = `
 "
 ===============
  $ which atom
