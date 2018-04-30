@@ -3,6 +3,18 @@ const { run } = require('runjs');
 
 /**
  * @param {string} command
+ * @returns {string}
+ */
+const decorate = command => {
+  if (typeof command !== 'string') {
+    throw new TypeError(`Expected "String", instead got "${command}: ${typeof command}"`);
+  }
+
+  return command;
+};
+
+/**
+ * @param {string} command
  * @param {Object} args - minimist argument object
  * @param {Object} opts
  * @param {Object} [opts.aliases={}] - map keys in "args" to an aliased name
@@ -62,5 +74,6 @@ const exec = (command, args = {}, opts = {}) => {
 };
 
 module.exports = {
+  decorate,
   exec
 };

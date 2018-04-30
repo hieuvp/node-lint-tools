@@ -9,6 +9,7 @@ Object {
     "sleep": [Function],
   },
   "shell": Object {
+    "decorate": [Function],
     "exec": [Function],
   },
 }
