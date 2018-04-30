@@ -1,5 +1,7 @@
 const react = require('./react.utils');
 
-it('should match snapshot', () => {
-  expect(react).toMatchSnapshot();
+describe('react.utils', () => {
+  it('should match snapshot', () => {
+    expect(react).toMatchSnapshot();
+  });
 });

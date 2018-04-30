@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should match snapshot 1`] = `
+exports[`react-native.utils should match snapshot 1`] = `
 Object {
   "glob": Object {
     "getPatternByExtension": [Function],
@@ -9,6 +9,7 @@ Object {
     "sleep": [Function],
   },
   "shell": Object {
+    "decorate": [Function],
     "exec": [Function],
   },
 }
