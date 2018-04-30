@@ -1,7 +1,16 @@
 const { run } = require('runjs');
-const { exec } = require('./shell.utils');
+const { decorate, exec } = require('./shell.utils');
 
 jest.mock('runjs', () => ({ run: jest.fn() }));
+
+describe('decorate', () => {
+  [[], true, undefined, null, 1].forEach(command => {
+    it(`should throw an error because "${JSON.stringify(command)}" is not a string`, () => {
+      const fn = () => decorate(command);
+      expect(fn).toThrowErrorMatchingSnapshot();
+    });
+  });
+});
 
 describe('exec', () => {
   afterEach(() => {

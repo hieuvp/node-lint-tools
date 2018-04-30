@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`decorate should throw an error because "[]" is not a string 1`] = `"Expected \\"String\\", instead got \\": object\\""`;
+
+exports[`decorate should throw an error because "1" is not a string 1`] = `"Expected \\"String\\", instead got \\"1: number\\""`;
+
+exports[`decorate should throw an error because "null" is not a string 1`] = `"Expected \\"String\\", instead got \\"null: object\\""`;
+
+exports[`decorate should throw an error because "true" is not a string 1`] = `"Expected \\"String\\", instead got \\"true: boolean\\""`;
+
+exports[`decorate should throw an error because "undefined" is not a string 1`] = `"Expected \\"String\\", instead got \\"undefined: undefined\\""`;
+
 exports[`exec command should throw an error because "     " is an empty string 1`] = `"Command \\"     \\" cannot be empty"`;
 
 exports[`exec command should throw an error because " " is an empty string 1`] = `"Command \\" \\" cannot be empty"`;
