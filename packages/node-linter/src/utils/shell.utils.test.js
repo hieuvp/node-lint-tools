@@ -106,15 +106,17 @@ describe('exec', () => {
         });
       });
 
-      it('should not print anything by default', async () => {
+      it('should not print anything to the screen by default', async () => {
         await exec(command);
         // eslint-disable-next-line no-console
+        // TODO: essential decorate to be not called
         expect(console.log).not.toBeCalled();
       });
 
       it('should print the command when passing a true value', async () => {
         await exec(command, undefined, { titled: true });
         // eslint-disable-next-line no-console
+        // TODO: essential decorate to be called
         expect(console.log).toHaveBeenCalledTimes(1);
       });
     });
