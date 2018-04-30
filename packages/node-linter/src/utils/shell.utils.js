@@ -10,7 +10,10 @@ const decorate = command => {
     throw new TypeError(`Expected "String", instead got "${command}: ${typeof command}"`);
   }
 
-  return command;
+  const separator = '=';
+  const width = command.length + 5;
+
+  return `\n${separator.repeat(width)}\n $ ${command}\n${separator.repeat(width)}\n`;
 };
 
 /**
