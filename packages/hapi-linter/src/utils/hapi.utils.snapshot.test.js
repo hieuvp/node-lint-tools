@@ -1,5 +1,7 @@
 const hapi = require('./hapi.utils');
 
-it('should match snapshot', () => {
-  expect(hapi).toMatchSnapshot();
+describe('hapi.utils', () => {
+  it('should match snapshot', () => {
+    expect(hapi).toMatchSnapshot();
+  });
 });
