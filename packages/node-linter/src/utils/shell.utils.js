@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 const dargs = require('dargs');
 const { run } = require('runjs');
 
@@ -68,7 +69,13 @@ const exec = (command, args = {}, opts = {}) => {
   // thus not printed out to the terminal
   const stdio = 'pipe';
 
-  return run(enhancedCommand, { async, stdio }).catch(error => {
+  const title = message => {
+    // eslint-disable-next-line no-console
+    console.log(chalk.bold(decorate(message)));
+  };
+  const logger = { title };
+
+  return run(enhancedCommand, { async, stdio }, logger).catch(error => {
     if (errorIgnored) {
       return error;
     }
