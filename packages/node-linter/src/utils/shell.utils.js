@@ -61,6 +61,7 @@ const exec = (command, args = {}, opts = {}) => {
     throw new TypeError(`Expected "Boolean", instead got "${titled}: ${typeof titled}"`);
   }
 
+  // Create a custom logger to be used in "run"
   const title = message => {
     if (titled) {
       const enhancedMessage = chalk.bold(decorate(message));
@@ -68,7 +69,6 @@ const exec = (command, args = {}, opts = {}) => {
       console.log(enhancedMessage);
     }
   };
-
   const logger = { title };
 
   if (typeof errorIgnored !== 'boolean') {
