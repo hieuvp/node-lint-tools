@@ -22,6 +22,7 @@ const decorate = command => {
  * @param {Object} args - minimist argument object
  * @param {Object} opts
  * @param {Object} [opts.aliases={}] - map keys in "args" to an aliased name
+ * @param {boolean} [opts.titled=false] - decorate the command
  * @param {boolean} [opts.errorIgnored=false]
  * @returns {Promise}
  */
@@ -36,7 +37,7 @@ const exec = (command, args = {}, opts = {}) => {
     throw new Error(`Command "${command}" cannot be empty`);
   }
 
-  const { aliases = {}, errorIgnored = false } = opts;
+  const { aliases = {}, titled = false, errorIgnored = false } = opts;
 
   if (typeof aliases !== 'object' || aliases === null || Array.isArray(aliases)) {
     throw new TypeError(`Expected "Object", instead got "${aliases}: ${typeof aliases}"`);
@@ -56,6 +57,20 @@ const exec = (command, args = {}, opts = {}) => {
     enhancedCommand += ` ${enhancedArgs.join(' ')}`;
   }
 
+  if (typeof titled !== 'boolean') {
+    throw new TypeError(`Expected "Boolean", instead got "${titled}: ${typeof titled}"`);
+  }
+
+  const title = message => {
+    if (titled) {
+      const enhancedMessage = chalk.bold(decorate(message));
+      // eslint-disable-next-line no-console
+      console.log(enhancedMessage);
+    }
+  };
+
+  const logger = { title };
+
   if (typeof errorIgnored !== 'boolean') {
     throw new TypeError(
       `Expected "Boolean", instead got "${errorIgnored}: ${typeof errorIgnored}"`
@@ -68,12 +83,6 @@ const exec = (command, args = {}, opts = {}) => {
   // Outputs are returned but not forwarded to the parent process
   // thus not printed out to the terminal
   const stdio = 'pipe';
-
-  const title = message => {
-    // eslint-disable-next-line no-console
-    console.log(chalk.bold(decorate(message)));
-  };
-  const logger = { title };
 
   return run(enhancedCommand, { async, stdio }, logger).catch(error => {
     if (errorIgnored) {
