@@ -63,10 +63,10 @@ const exec = (command, args = {}, opts = {}) => {
 
   // Create a custom logger to be used for "run"
   const logger = {
-    title: message => {
+    title: cmd => {
       if (titled) {
         // eslint-disable-next-line no-console
-        console.log(bold(decorate(message)));
+        console.log(bold(decorate(cmd)));
       }
     }
   };
