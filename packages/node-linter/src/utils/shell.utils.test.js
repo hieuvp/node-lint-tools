@@ -1,9 +1,13 @@
 const { run } = require('runjs');
-const { decorate, exec } = require('./shell.utils');
+const shell = require('./shell.utils');
 
 jest.mock('runjs', () => ({ run: jest.fn() }));
 
+global.console = { log: jest.fn() };
+
 describe('decorate', () => {
+  const { decorate } = shell;
+
   [[], true, undefined, null, 1].forEach(command => {
     it(`should throw an error because "${JSON.stringify(command)}" is not a string`, () => {
       const fn = () => decorate(command);
@@ -13,15 +17,18 @@ describe('decorate', () => {
 });
 
 describe('exec', () => {
+  const { exec } = shell;
+  const decorate = jest.spyOn(shell, 'decorate');
+
+  beforeEach(() => {
+    run.mockResolvedValue();
+  });
+
   afterEach(() => {
     jest.resetAllMocks();
   });
 
   describe('command', () => {
-    beforeEach(() => {
-      run.mockResolvedValue();
-    });
-
     [[], true, undefined, null, 1].forEach(command => {
       it(`should throw an error because "${JSON.stringify(command)}" is not a string`, () => {
         const fn = () => exec(command);
@@ -59,10 +66,6 @@ describe('exec', () => {
     describe('aliases', () => {
       const command = 'tree';
 
-      beforeEach(() => {
-        run.mockResolvedValue();
-      });
-
       [[], true, null, 1].forEach(aliases => {
         // prettier-ignore
         it(`should throw an error because "${JSON.stringify(aliases)}" is not an object`, () => {
@@ -91,6 +94,37 @@ describe('exec', () => {
 
         await exec(command, args, { aliases });
         expect(run.mock.calls[1][0]).toEqual('tree -L 1 -u -g -s');
+      });
+    });
+
+    describe('titled', () => {
+      const command = 'ls';
+
+      beforeEach(() => {
+        run.mockImplementation(require.requireActual('runjs').run);
+      });
+
+      [[], null, 1].forEach(titled => {
+        it(`should throw an error because "${JSON.stringify(titled)}" is not a boolean`, () => {
+          const fn = () => exec(command, undefined, { titled });
+          expect(fn).toThrowErrorMatchingSnapshot();
+        });
+      });
+
+      it('should not print the decorated command to the screen by default', async () => {
+        await exec(command);
+
+        // eslint-disable-next-line no-console
+        expect(console.log).not.toBeCalled();
+        expect(decorate).not.toBeCalled();
+      });
+
+      it('should print decorate the command when passing a true value', async () => {
+        await exec(command, undefined, { titled: true });
+
+        // eslint-disable-next-line no-console
+        expect(console.log).toHaveBeenCalledTimes(1);
+        expect(decorate).toHaveBeenCalledTimes(1);
       });
     });
 

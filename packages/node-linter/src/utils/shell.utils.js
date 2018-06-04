@@ -1,4 +1,5 @@
 const dargs = require('dargs');
+const { bold } = require('chalk');
 const { run } = require('runjs');
 
 /**
@@ -21,6 +22,7 @@ const decorate = command => {
  * @param {Object} args - minimist argument object
  * @param {Object} opts
  * @param {Object} [opts.aliases={}] - map keys in "args" to an aliased name
+ * @param {boolean} [opts.titled=false] - decorate the command
  * @param {boolean} [opts.errorIgnored=false]
  * @returns {Promise}
  */
@@ -35,7 +37,7 @@ const exec = (command, args = {}, opts = {}) => {
     throw new Error(`Command "${command}" cannot be empty`);
   }
 
-  const { aliases = {}, errorIgnored = false } = opts;
+  const { aliases = {}, titled = false, errorIgnored = false } = opts;
 
   if (typeof aliases !== 'object' || aliases === null || Array.isArray(aliases)) {
     throw new TypeError(`Expected "Object", instead got "${aliases}: ${typeof aliases}"`);
@@ -55,6 +57,20 @@ const exec = (command, args = {}, opts = {}) => {
     enhancedCommand += ` ${enhancedArgs.join(' ')}`;
   }
 
+  if (typeof titled !== 'boolean') {
+    throw new TypeError(`Expected "Boolean", instead got "${titled}: ${typeof titled}"`);
+  }
+
+  // Create a custom logger to be used for "run"
+  const logger = {
+    title: cmd => {
+      if (titled) {
+        // eslint-disable-next-line no-console
+        console.log(bold(decorate(cmd)));
+      }
+    }
+  };
+
   if (typeof errorIgnored !== 'boolean') {
     throw new TypeError(
       `Expected "Boolean", instead got "${errorIgnored}: ${typeof errorIgnored}"`
@@ -68,7 +84,7 @@ const exec = (command, args = {}, opts = {}) => {
   // thus not printed out to the terminal
   const stdio = 'pipe';
 
-  return run(enhancedCommand, { async, stdio }).catch(error => {
+  return run(enhancedCommand, { async, stdio }, logger).catch(error => {
     if (errorIgnored) {
       return error;
     }
