@@ -25,9 +25,9 @@
   },
   "homepage": "https://github.com/hieuvp/node-lint-tools#readme",
   "devDependencies": {
-    "dargs": "^5.1.0",
-    "jest": "^22.4.3",
-    "jest-extended": "^0.7.1",
+    "dargs": "^6.0.0",
+    "jest": "^23.1.0",
+    "jest-extended": "^0.7.2",
     "lerna": "^2.11.0",
     "runjs": "^4.3.2"
   }

@@ -11,7 +11,6 @@ const sleep = ms => {
     throw new Error('Millisecond must be a positive number');
   }
 
-  // eslint-disable-next-line promise/avoid-new
   return new Promise(resolve => setTimeout(resolve, ms));
 };
 
